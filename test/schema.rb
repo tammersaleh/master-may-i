@@ -4,6 +4,11 @@ ActiveRecord::Schema.define(:version => 1) do
 		t.column :creator_id, :integer
 	end
 
+	create_table :notes do |t|
+		t.column :title, :string
+		t.column :user_id, :integer
+	end
+
 	create_table :users do |t|
 		t.column :username, :string
 		t.column :creator_id, :integer

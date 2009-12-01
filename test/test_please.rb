@@ -4,11 +4,22 @@ class Post < ActiveRecord::Base
   records_creating_user
 end
 
+class Note < ActiveRecord::Base
+  records_creating_user :as => "user"
+end
+
 class User < ActiveRecord::Base
   acts_as_authentic
 end
 
 class UserSession < Authlogic::Session::Base
+end
+
+class NoteTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+  setup { Post.destroy_all }
+
+  should_record_creating_user :as => "user"
 end
 
 class PostTest < ActiveSupport::TestCase
