@@ -1,6 +1,6 @@
 = Master May I?
 
-Description goes here.
+Totally don't use this, yet.
 
 == Note on Patches/Pull Requests
  
