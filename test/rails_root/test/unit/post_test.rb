@@ -2,7 +2,6 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   setup :activate_authlogic
-  setup { Post.destroy_all }
 
   should_record_creating_user
 
