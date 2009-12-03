@@ -10,11 +10,12 @@ begin
     gem.email = "tsaleh@gmail.com"
     gem.homepage = "http://github.com/tsaleh/master_may_i"
     gem.authors = ["Tammer Saleh"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    gem.add_development_dependency "thoughtbot-factory_girl", ">= 0"
-    gem.add_development_dependency "authlogic", ">= 0"
     gem.add_development_dependency "yard", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_development_dependency "shoulda", ">= 0"
+    gem.add_development_dependency "factory_girl", ">= 0"
+    gem.add_development_dependency "authlogic", ">= 0"
+    gem.add_development_dependency "inherited_resources", ">= 0"
+    gem.add_development_dependency "rails", ">= 0"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
