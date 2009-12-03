@@ -3,5 +3,6 @@ class User < ActiveRecord::Base
     config.validate_password_field = false
     config.validate_email_field    = false
   end
+  validates_confirmation_of :password
 end
 

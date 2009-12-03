@@ -2,6 +2,13 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
+Dir[File.join(File.dirname(__FILE__), "..", "vendor", "gems", "*", "shoulda_macros", "*")].each do |macro_file|
+  require macro_file
+end
+
+begin require 'redgreen'; rescue LoadError; end
+require "authlogic/test_case"
+
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the

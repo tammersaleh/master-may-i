@@ -32,7 +32,7 @@
 # *Do not override the creatable?, readable?, editable? or destroyable?
 # methods.*
 
-module Please
+module MasterMayI
   module ActiveRecordExtensions
     module ClassMethods
       # Should the current user be able to create a record?
@@ -121,6 +121,6 @@ module Please
 end
 
 class ActiveRecord::Base
-  extend Please::ActiveRecordExtensions::ClassMethods
-  include Please::ActiveRecordExtensions::InstanceMethods
+  extend MasterMayI::ActiveRecordExtensions::ClassMethods
+  include MasterMayI::ActiveRecordExtensions::InstanceMethods
 end
