@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{master_may_i}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tammer Saleh"]
@@ -23,7 +23,9 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/master_may_i",
+     "lib/master_may_i.rb",
+     "lib/master_may_i/active_record_extensions.rb",
+     "lib/master_may_i/inherited_resources_extensions.rb",
      "master_may_i.gemspec",
      "shoulda_macros/active_record_macros.rb",
      "shoulda_macros/inherited_resources_macros.rb",
@@ -33,7 +35,17 @@ Gem::Specification.new do |s|
      "test/rails_root/README",
      "test/rails_root/Rakefile",
      "test/rails_root/app/controllers/application_controller.rb",
+     "test/rails_root/app/controllers/notes_controller.rb",
      "test/rails_root/app/helpers/application_helper.rb",
+     "test/rails_root/app/helpers/notes_controller_helper.rb",
+     "test/rails_root/app/models/note.rb",
+     "test/rails_root/app/models/post.rb",
+     "test/rails_root/app/models/user.rb",
+     "test/rails_root/app/models/user_session.rb",
+     "test/rails_root/app/views/notes/edit.html.erb",
+     "test/rails_root/app/views/notes/index.html.erb",
+     "test/rails_root/app/views/notes/new.html.erb",
+     "test/rails_root/app/views/notes/show.html.erb",
      "test/rails_root/config/boot.rb",
      "test/rails_root/config/database.yml",
      "test/rails_root/config/environment.rb",
@@ -47,6 +59,9 @@ Gem::Specification.new do |s|
      "test/rails_root/config/initializers/session_store.rb",
      "test/rails_root/config/locales/en.yml",
      "test/rails_root/config/routes.rb",
+     "test/rails_root/db/migrate/20091203160706_create_posts.rb",
+     "test/rails_root/db/migrate/20091203161915_create_users.rb",
+     "test/rails_root/db/migrate/20091203162611_create_notes.rb",
      "test/rails_root/db/seeds.rb",
      "test/rails_root/doc/README_FOR_APP",
      "test/rails_root/public/404.html",
@@ -71,8 +86,12 @@ Gem::Specification.new do |s|
      "test/rails_root/script/plugin",
      "test/rails_root/script/runner",
      "test/rails_root/script/server",
+     "test/rails_root/test/factories.rb",
+     "test/rails_root/test/functional/notes_controller_test.rb",
      "test/rails_root/test/performance/browsing_test.rb",
      "test/rails_root/test/test_helper.rb",
+     "test/rails_root/test/unit/note_test.rb",
+     "test/rails_root/test/unit/post_test.rb",
      "test/schema.rb",
      "test/test_master_may_i.rb"
   ]
@@ -85,7 +104,13 @@ Gem::Specification.new do |s|
     "test/factories.rb",
      "test/helper.rb",
      "test/rails_root/app/controllers/application_controller.rb",
+     "test/rails_root/app/controllers/notes_controller.rb",
      "test/rails_root/app/helpers/application_helper.rb",
+     "test/rails_root/app/helpers/notes_controller_helper.rb",
+     "test/rails_root/app/models/note.rb",
+     "test/rails_root/app/models/post.rb",
+     "test/rails_root/app/models/user.rb",
+     "test/rails_root/app/models/user_session.rb",
      "test/rails_root/config/boot.rb",
      "test/rails_root/config/environment.rb",
      "test/rails_root/config/environments/development.rb",
@@ -97,9 +122,16 @@ Gem::Specification.new do |s|
      "test/rails_root/config/initializers/new_rails_defaults.rb",
      "test/rails_root/config/initializers/session_store.rb",
      "test/rails_root/config/routes.rb",
+     "test/rails_root/db/migrate/20091203160706_create_posts.rb",
+     "test/rails_root/db/migrate/20091203161915_create_users.rb",
+     "test/rails_root/db/migrate/20091203162611_create_notes.rb",
      "test/rails_root/db/seeds.rb",
+     "test/rails_root/test/factories.rb",
+     "test/rails_root/test/functional/notes_controller_test.rb",
      "test/rails_root/test/performance/browsing_test.rb",
      "test/rails_root/test/test_helper.rb",
+     "test/rails_root/test/unit/note_test.rb",
+     "test/rails_root/test/unit/post_test.rb",
      "test/schema.rb",
      "test/test_master_may_i.rb"
   ]
