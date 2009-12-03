@@ -11,8 +11,7 @@ require 'authlogic/test_case'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'shoulda_macros'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'please'
-require 'please_macros'
+require 'master_may_i'
 
 BASE = File.dirname(__FILE__)
 
