@@ -55,16 +55,32 @@ module MasterMayI
 
       def deny_access(opts = {})
         if logged_in?
-          opts[:flash]       ||= "You don't have permission to access this page."
-          opts[:redirect_to] ||= root_url
+          opts[:flash]       ||= permission_denied_flash_for_user
+          opts[:redirect_to] ||= permission_denied_redirect_for_user
         else
-          opts[:flash]       ||= "Please login."
-          opts[:redirect_to] ||= login_url
+          opts[:flash]       ||= permission_denied_flash_for_visitor
+          opts[:redirect_to] ||= permission_denied_redirect_for_visitor
         end
 
         store_location
         flash[:notice] = opts[:flash]
         redirect_to opts[:redirect_to]
+      end
+
+      def permission_denied_flash_for_user
+        "You don't have permission to access this page."
+      end
+
+      def permission_denied_flash_for_visitor
+        "Please login."
+      end
+
+      def permission_denied_redirect_for_user
+        root_url
+      end
+
+      def permission_denied_redirect_for_visitor
+        login_url
       end
 
       def store_location
@@ -82,5 +98,6 @@ end
 
 class ActionController::Base
   extend MasterMayI::InheritedResourcesExtensions
+private
   include MasterMayI::InheritedResourcesExtensions::InstanceMethods
 end

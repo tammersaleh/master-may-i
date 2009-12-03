@@ -46,14 +46,12 @@ class NotesControllerTest < ActionController::TestCase
     who_cannot_manage :notes do
       context "on GET to /notes/new" do
         setup { get :new }
-        should_set_the_flash_to /permission/i
-        should_redirect_to("root url") { root_url }
+        should_be_denied_as_user
       end
 
       context "on POST to /notes" do
         setup { post :create, :note => {} }
-        should_set_the_flash_to /permission/i
-        should_redirect_to("root url") { root_url }
+        should_be_denied_as_user
       end
 
       context "given a note" do
@@ -61,26 +59,22 @@ class NotesControllerTest < ActionController::TestCase
 
         context "on GET to /notes/:id" do
           setup { get :show, :id => @note }
-          should_set_the_flash_to /permission/i
-          should_redirect_to("root url") { root_url }
+          should_be_denied_as_user
         end
 
         context "on GET to /notes/:id/edit" do
           setup { get :edit, :id => @note }
-          should_set_the_flash_to /permission/i
-          should_redirect_to("root url") { root_url }
+          should_be_denied_as_user
         end
 
         context "on PUT to /notes/:id" do
           setup { put :update, :id => @note.to_param, :note => {} }
-          should_set_the_flash_to /permission/i
-          should_redirect_to("root url") { root_url }
+          should_be_denied_as_user
         end
 
         context "on DELETE to /notes/:id" do
           setup { delete :destroy, :id => @note.to_param }
-          should_set_the_flash_to /permission/i
-          should_redirect_to("root url") { root_url }
+          should_be_denied_as_user
         end
       end
     end
@@ -90,14 +84,12 @@ class NotesControllerTest < ActionController::TestCase
     who_cannot_manage :notes do
       context "on GET to /notes/new" do
         setup { get :new }
-        should_set_the_flash_to /login/i
-        should_redirect_to("login url") { login_url }
+        should_be_denied_as_visitor
       end
 
       context "on POST to /notes" do
         setup { post :create, :note => {} }
-        should_set_the_flash_to /login/i
-        should_redirect_to("login url") { login_url }
+        should_be_denied_as_visitor
       end
 
       context "given a note" do
@@ -105,26 +97,22 @@ class NotesControllerTest < ActionController::TestCase
 
         context "on GET to /notes/:id" do
           setup { get :show, :id => @note }
-          should_set_the_flash_to /login/i
-          should_redirect_to("login url") { login_url }
+          should_be_denied_as_visitor
         end
 
         context "on GET to /notes/:id/edit" do
           setup { get :edit, :id => @note }
-          should_set_the_flash_to /login/i
-          should_redirect_to("login url") { login_url }
+          should_be_denied_as_visitor
         end
 
         context "on PUT to /notes/:id" do
           setup { put :update, :id => @note.to_param, :note => {} }
-          should_set_the_flash_to /login/i
-          should_redirect_to("login url") { login_url }
+          should_be_denied_as_visitor
         end
 
         context "on DELETE to /notes/:id" do
           setup { delete :destroy, :id => @note.to_param }
-          should_set_the_flash_to /login/i
-          should_redirect_to("login url") { login_url }
+          should_be_denied_as_visitor
         end
       end
     end

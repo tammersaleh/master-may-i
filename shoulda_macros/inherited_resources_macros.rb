@@ -1,4 +1,18 @@
 class ActionController::TestCase
+  def self.as_a_logged_in_user(&blk)
+    context "as a logged in user" do
+      setup { @logged_in_user = login_as Factory(:user) }
+      merge_block(&blk)
+    end
+  end
+
+  def self.as_a_visitor(&blk)
+    context "as a visitor" do
+      setup { logout }
+      merge_block(&blk)
+    end
+  end
+
   def self.who_can_manage(plural_model_name, &blk)
     context "who can manage #{plural_model_name}" do
       setup do
@@ -19,17 +33,23 @@ class ActionController::TestCase
     end
   end
 
-  def self.as_a_logged_in_user(&blk)
-    context "as a logged in user" do
-      setup { @logged_in_user = login_as Factory(:user) }
-      merge_block(&blk)
+  def self.should_be_denied_as_user
+    should "tell the user they aren't authorized" do
+      assert_contains flash.values, @controller.send(:permission_denied_flash_for_user)
+    end
+
+    should "redirect user due to authorization" do
+      assert_redirected_to @controller.send(:permission_denied_redirect_for_user)
     end
   end
 
-  def self.as_a_visitor(&blk)
-    context "as a visitor" do
-      setup { logout }
-      merge_block(&blk)
+  def self.should_be_denied_as_visitor
+    should "tell the visitor they aren't authorized" do
+      assert_contains flash.values, @controller.send(:permission_denied_flash_for_visitor)
+    end
+
+    should "redirect visitor due to authorization" do
+      assert_redirected_to @controller.send(:permission_denied_redirect_for_visitor)
     end
   end
 
