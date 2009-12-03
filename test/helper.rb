@@ -14,7 +14,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'please'
 require 'please_macros'
 
-
 BASE = File.dirname(__FILE__)
 
 # Configure Factory Girl

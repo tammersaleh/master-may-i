@@ -1,4 +1,52 @@
 class ActiveSupport::TestCase
+  def self.should_be_creatable_by(test_name, &user_block)
+    should "be creatable by #{test_name}" do
+      assert subject.class.creatable_by?(instance_eval(&user_block))
+    end
+  end
+
+  def self.should_not_be_creatable_by(test_name, &user_block)
+    should "not be creatable by #{test_name}" do
+      assert !subject.class.creatable_by?(instance_eval(&user_block))
+    end
+  end
+
+  def self.should_be_readable_by(test_name, &user_block)
+    should "be readable by #{test_name}" do
+      assert subject.readable_by?(instance_eval(&user_block))
+    end
+  end
+
+  def self.should_not_be_readable_by(test_name, &user_block)
+    should "not be readable by #{test_name}" do
+      assert !subject.readable_by?(instance_eval(&user_block))
+    end
+  end
+
+  def self.should_be_editable_by(test_name, &user_block)
+    should "be editable by #{test_name}" do
+      assert subject.editable_by?(instance_eval(&user_block))
+    end
+  end
+
+  def self.should_not_be_editable_by(test_name, &user_block)
+    should "not be editable by #{test_name}" do
+      assert !subject.editable_by?(instance_eval(&user_block))
+    end
+  end
+  
+  def self.should_be_destroyable_by(test_name, &user_block)
+    should "be destroyable by #{test_name}" do
+      assert subject.destroyable_by?(instance_eval(&user_block))
+    end
+  end
+
+  def self.should_not_be_destroyable_by(test_name, &user_block)
+    should "not be destroyable by #{test_name}" do
+      assert !subject.destroyable_by?(instance_eval(&user_block))
+    end
+  end
+
   def self.should_record_creating_user(opts = {})
     association_name = (opts[:as] || :creator).to_sym
 
