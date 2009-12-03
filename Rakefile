@@ -22,11 +22,17 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+# Rake::TestTask.new(:test) do |test|
+#   test.libs << 'lib' << 'test'
+#   test.pattern = 'test/**/test_*.rb'
+#   test.verbose = true
+# end
+desc 'Run the tests.'
+task :test do
+  rails_root = File.join(File.dirname(__FILE__), 'test', 'rails_root')
+  system("cd #{rails_root} && rake")
 end
+
 
 begin
   require 'rcov/rcovtask'
