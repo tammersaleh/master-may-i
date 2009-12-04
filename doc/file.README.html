@@ -40,6 +40,16 @@
 <h3>If these docs looks all wanky, then be sure you&#8217;re viewing them on the rdoc.info site: http://rdoc.info/projects/tsaleh/master-may-i</h3>
 <h2>Overview</h2>
 <p>
+Master May I is not an Access Control List system. In fact, it has
+absolutely no opinions about how you structure your underlying business
+rules. All it does is gives you a consistent and flexible pattern for
+accessing those rules.
+</p>
+<p>
+There are two main components:
+</p>
+<h3>The Model Layer</h3>
+<p>
 <tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> adds query methods to all your models, which can
 be used to determine who&#8217;s allowed to do what.
 <tt><a href="MasterMayI/ActiveRecordExtensions.html" title="Learn more.">Learn more.</a></tt>
@@ -88,6 +98,7 @@ Authlogic UserSession is automatically stored whenever a record is created.
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 </pre>
+<h3>The Controller Layer</h3>
 <p>
 If you include <tt><a href="MasterMayI/ControllerExtensions.html" title="MasterMayI::ControllerExtensions">MasterMayI::ControllerExtensions</a></tt> in your
 ApplicationController, MasterMayI adds a few utility methods to your
@@ -134,10 +145,12 @@ model in a set of before filters.
 <p>
 <tt><a href="MasterMayI/ControllerExtensions.html" title="Learn more.">Learn more.</a></tt>
 </p>
-<h2>Testing</h2>
+<h2>Testing with Shoulda</h2>
 <p>
-Master May I comes with a strong set of Shoulda macros for both your
-<tt><a href="ActiveSupport/TestCase.html" title="unit tests">unit tests</a></tt> and your <tt><a href="ActionController/TestCase.html" title="functional tests">functional tests</a></tt>.
+Master May I comes with a strong set of Shoulda macros:
+</p>
+<p>
+&#8230;for your <tt><a href="ActiveSupport/TestCase.html" title="unit tests">unit tests</a></tt>:
 </p>
 <pre class="code">
   <span class='class class kw'>class</span> <span class='NoteTest constant id'>NoteTest</span> <span class='lt op'>&lt;</span> <span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
@@ -161,7 +174,11 @@ Master May I comes with a strong set of Shoulda macros for both your
       <span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
-
+</pre>
+<p>
+&#8230;and your <tt><a href="ActionController/TestCase.html" title="functional tests">functional tests</a></tt>:
+</p>
+<pre class="code">
   <span class='class class kw'>class</span> <span class='NotesControllerTest constant id'>NotesControllerTest</span> <span class='lt op'>&lt;</span> <span class='ActionController constant id'>ActionController</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
     <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
 
@@ -182,9 +199,10 @@ Master May I is hosted on gemcutter, so installation is as easy as:
   <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='master_may_i identifier id'>master_may_i</span>
 </pre>
 <p>
-It relies heavily on Authlogic, and uses the <tt>resource</tt> and
-<tt>resource_class</tt> methods from InheritedResources. The before filters
-expect there to be the following named route:
+It relies heavily on Authlogic, and the controller module uses the
+<tt>resource</tt> and <tt>resource_class</tt> methods from
+InheritedResources. Finally, the before filters expect there to be the a
+url helper named login_url:
 </p>
 <pre class="code">
   <span class='map identifier id'>map</span><span class='dot token'>.</span><span class='login identifier id'>login</span> <span class='string val'>&quot;/login&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:controller</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:user_session</span><span class='comma token'>,</span> <span class='symbol val'>:action</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:new</span>
@@ -196,7 +214,7 @@ Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
 </div></div>
     
     <div id="footer">
-  Generated on Fri Dec  4 10:12:19 2009 by 
+  Generated on Fri Dec  4 10:46:37 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

@@ -6,6 +6,14 @@
 
 == Overview
 
+Master May I is not an Access Control List system. In fact, it has absolutely
+no opinions about how you structure your underlying business rules. All it does
+is gives you a consistent and flexible pattern for accessing those rules.
+
+There are two main components:
+
+===  The Model Layer
+
 {MasterMayI Master May I} adds query methods to all your models, which can be
 used to determine who's allowed to do what. {MasterMayI::ActiveRecordExtensions
 Learn more.}
@@ -47,6 +55,8 @@ more.}
     end
   end
 
+=== The Controller Layer
+
 If you include {MasterMayI::ControllerExtensions} in your ApplicationController, MasterMayI adds a few utility methods to your ApplicationController:
 
 * {MasterMayI::ControllerExtensions#current_user +current_user+}
@@ -74,12 +84,11 @@ Learn more.}
 
 {MasterMayI::ControllerExtensions Learn more.}
 
-== Testing
+== Testing with Shoulda
 
-Master May I comes with a strong set of Shoulda macros for both your
-{ActiveSupport::TestCase unit tests} and your {ActionController::TestCase
-functional tests}.  
+Master May I comes with a strong set of Shoulda macros:
 
+...for your {ActiveSupport::TestCase unit tests}:
 
   class NoteTest < ActiveSupport::TestCase
     setup :activate_authlogic
@@ -103,6 +112,8 @@ functional tests}.
     end
   end
 
+...and your {ActionController::TestCase functional tests}:
+
   class NotesControllerTest < ActionController::TestCase
     setup :activate_authlogic
     
@@ -121,9 +132,9 @@ Master May I is hosted on gemcutter, so installation is as easy as:
 
   sudo gem install master_may_i
 
-It relies heavily on Authlogic, and uses the +resource+ and +resource_class+
-methods from InheritedResources.  The before filters expect there to be the
-following named route:
+It relies heavily on Authlogic, and the controller module uses the +resource+
+and +resource_class+ methods from InheritedResources.  Finally, the before filters
+expect there to be the a url helper named login_url:
 
   map.login "/login", :controller => :user_session, :action => :new
 

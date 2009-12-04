@@ -5,10 +5,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "master_may_i"
-    gem.summary = %Q{Super simple model based authorization designed to work with AuthLogic and InheritedResources}
-    gem.description = %Q{Super simple model based authorization designed to work with AuthLogic and InheritedResources}
+    gem.summary = %Q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
+    gem.description = %Q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
     gem.email = "tsaleh@gmail.com"
-    gem.homepage = "http://github.com/tsaleh/master-may-i"
+    gem.homepage = "http://tammersaleh.com/posts/master-may-i"
     gem.authors = ["Tammer Saleh"]
     gem.add_development_dependency "yard", ">= 0"
     gem.add_development_dependency "shoulda", ">= 0"
