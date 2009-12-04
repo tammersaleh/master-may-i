@@ -58,7 +58,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">shoulda_macros/inherited_resources_macros.rb</dd>
+    <dd class="r2 last">shoulda_macros/controller_macros.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -70,7 +70,7 @@
   <ul class="summary">
     
       <li class="public ">
-  <span class="summary_signature"><a href="#as_a_logged_in_user-class_method" title="as_a_logged_in_user (class method)">+ (Object) <strong>as_a_logged_in_user</strong>(&amp;blk) </a>
+  <span class="summary_signature"><a title="as_a_logged_in_user (class method)" href="#as_a_logged_in_user-class_method">+ (Object) <strong>as_a_logged_in_user</strong>(&amp;blk) </a>
   
   </span>
   
@@ -85,7 +85,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#as_a_visitor-class_method" title="as_a_visitor (class method)">+ (Object) <strong>as_a_visitor</strong>(&amp;blk) </a>
+  <span class="summary_signature"><a title="as_a_visitor (class method)" href="#as_a_visitor-class_method">+ (Object) <strong>as_a_visitor</strong>(&amp;blk) </a>
   
   </span>
   
@@ -100,7 +100,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#should_be_denied_as_user-class_method" title="should_be_denied_as_user (class method)">+ (Object) <strong>should_be_denied_as_user</strong> </a>
+  <span class="summary_signature"><a title="should_be_denied_as_user (class method)" href="#should_be_denied_as_user-class_method">+ (Object) <strong>should_be_denied_as_user</strong> </a>
   
   </span>
   
@@ -115,7 +115,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#should_be_denied_as_visitor-class_method" title="should_be_denied_as_visitor (class method)">+ (Object) <strong>should_be_denied_as_visitor</strong> </a>
+  <span class="summary_signature"><a title="should_be_denied_as_visitor (class method)" href="#should_be_denied_as_visitor-class_method">+ (Object) <strong>should_be_denied_as_visitor</strong> </a>
   
   </span>
   
@@ -130,7 +130,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#who_can_manage-class_method" title="who_can_manage (class method)">+ (Object) <strong>who_can_manage</strong>(plural_model_name, &amp;blk) </a>
+  <span class="summary_signature"><a title="who_can_manage (class method)" href="#who_can_manage-class_method">+ (Object) <strong>who_can_manage</strong>(plural_model_name, &amp;blk) </a>
   
   </span>
   
@@ -145,7 +145,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#who_cannot_manage-class_method" title="who_cannot_manage (class method)">+ (Object) <strong>who_cannot_manage</strong>(plural_model_name, &amp;blk) </a>
+  <span class="summary_signature"><a title="who_cannot_manage (class method)" href="#who_cannot_manage-class_method">+ (Object) <strong>who_cannot_manage</strong>(plural_model_name, &amp;blk) </a>
   
   </span>
   
@@ -160,7 +160,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#login_as-instance_method" title="#login_as (instance method)">- (Object) <strong>login_as</strong>(user) </a>
+  <span class="summary_signature"><a title="#login_as (instance method)" href="#login_as-instance_method">- (Object) <strong>login_as</strong>(user) </a>
   
   </span>
   
@@ -175,7 +175,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#logout-instance_method" title="#logout (instance method)">- (Object) <strong>logout</strong> </a>
+  <span class="summary_signature"><a title="#logout (instance method)" href="#logout-instance_method">- (Object) <strong>logout</strong> </a>
   
   </span>
   
@@ -190,7 +190,7 @@
 
     
       <li class="public ">
-  <span class="summary_signature"><a href="#stub_all_authorization_methods_on_class-instance_method" title="#stub_all_authorization_methods_on_class (instance method)">- (Object) <strong>stub_all_authorization_methods_on_class</strong>(klass, user, return_value) </a>
+  <span class="summary_signature"><a title="#stub_all_authorization_methods_on_class (instance method)" href="#stub_all_authorization_methods_on_class-instance_method">- (Object) <strong>stub_all_authorization_methods_on_class</strong>(klass, user, return_value) </a>
   
   </span>
   
@@ -232,7 +232,7 @@
 7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 2</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='as_a_logged_in_user identifier id'>as_a_logged_in_user</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
   <span class='context identifier id'>context</span> <span class='string val'>&quot;as a logged in user&quot;</span> <span class='do do kw'>do</span>
@@ -267,7 +267,7 @@
 14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 9</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='as_a_visitor identifier id'>as_a_visitor</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
   <span class='context identifier id'>context</span> <span class='string val'>&quot;as a visitor&quot;</span> <span class='do do kw'>do</span>
@@ -305,7 +305,7 @@
 44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 36</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_denied_as_user identifier id'>should_be_denied_as_user</span>
   <span class='should identifier id'>should</span> <span class='string val'>&quot;tell the user they aren't authorized&quot;</span> <span class='do do kw'>do</span>
@@ -346,7 +346,7 @@
 54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 46</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_denied_as_visitor identifier id'>should_be_denied_as_visitor</span>
   <span class='should identifier id'>should</span> <span class='string val'>&quot;tell the visitor they aren't authorized&quot;</span> <span class='do do kw'>do</span>
@@ -387,7 +387,7 @@
 24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 16</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='who_can_manage identifier id'>who_can_manage</span><span class='lparen token'>(</span><span class='plural_model_name identifier id'>plural_model_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
   <span class='context identifier id'>context</span> <span class='dstring node'>&quot;who can manage #{plural_model_name}&quot;</span> <span class='do do kw'>do</span>
@@ -428,7 +428,7 @@
 34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 26</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='who_cannot_manage identifier id'>who_cannot_manage</span><span class='lparen token'>(</span><span class='plural_model_name identifier id'>plural_model_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='blk identifier id'>blk</span><span class='rparen token'>)</span>
   <span class='context identifier id'>context</span> <span class='dstring node'>&quot;who can't manage #{plural_model_name}&quot;</span> <span class='do do kw'>do</span>
@@ -464,7 +464,7 @@
 66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 63</span>
 
 <span class='def def kw'>def</span> <span class='login_as identifier id'>login_as</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
@@ -495,7 +495,7 @@
 71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='logout identifier id'>logout</span>
   <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='andop op'>&amp;&amp;</span> <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='dot token'>.</span><span class='destroy identifier id'>destroy</span>
@@ -528,7 +528,7 @@
 61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/inherited_resources_macros.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/controller_macros.rb', line 56</span>
 
 <span class='def def kw'>def</span> <span class='stub_all_authorization_methods_on_class identifier id'>stub_all_authorization_methods_on_class</span><span class='lparen token'>(</span><span class='klass identifier id'>klass</span><span class='comma token'>,</span> <span class='user identifier id'>user</span><span class='comma token'>,</span> <span class='return_value identifier id'>return_value</span><span class='rparen token'>)</span>
   <span class='klass identifier id'>klass</span><span class='dot token'>.</span><span class='stubs identifier id'>stubs</span><span class='lparen token'>(</span><span class='symbol val'>:creatable_by?</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='with identifier id'>with</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='returns identifier id'>returns</span><span class='lparen token'>(</span><span class='return_value identifier id'>return_value</span><span class='rparen token'>)</span>
@@ -547,7 +547,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 16:33:54 2009 by 
+  Generated on Thu Dec  3 17:33:47 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

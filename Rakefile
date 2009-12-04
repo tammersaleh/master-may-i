@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{Super simple model based authorization designed to work with AuthLogic and InheritedResources}
     gem.description = %Q{Super simple model based authorization designed to work with AuthLogic and InheritedResources}
     gem.email = "tsaleh@gmail.com"
-    gem.homepage = "http://github.com/tsaleh/master_may_i"
+    gem.homepage = "http://github.com/tsaleh/master-may-i"
     gem.authors = ["Tammer Saleh"]
     gem.add_development_dependency "yard", ">= 0"
     gem.add_development_dependency "shoulda", ">= 0"

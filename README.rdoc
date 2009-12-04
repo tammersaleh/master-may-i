@@ -2,6 +2,10 @@
 
 Clean, simple and flexible model based authorization designed to work with AuthLogic and InheritedResources.
 
+If these docs looks all wanky, then be sure you're viewing them on the rdoc.info site: 
+
+http://rdoc.info/projects/tsaleh/master-may-i
+
 == Executive Summary
 
 {MasterMayI Master May I} adds query methods to all your models, which can be used to determine who's allowed to do what.
@@ -37,11 +41,20 @@ If you call {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_u
     end
   end
 
-MasterMayI also includes the {MasterMayI::InheritedResourcesExtensions#protects_restful_actions +protects_restful_actions+} controller class method, which integrates with InheritedResources in order to automatically check with the model in a set of before filters.
+MasterMayI also includes the {MasterMayI::ControllerExtensions#protects_restful_actions +protects_restful_actions+} controller class method, which integrates with InheritedResources in order to automatically check with the model in a set of before filters.
 
   class NotesController < InheritedResources::Base
     protects_restful_actions
   end
+
+Finally, MasterMayI adds a few utility methods to your ApplicationController:
+
+* {MasterMayI::ControllerExtensions::InstanceMethods#current_user +current_user+}
+* {MasterMayI::ControllerExtensions::InstanceMethods#logged_in? +logged_in?+}
+* {MasterMayI::ControllerExtensions::InstanceMethods#require_user +require_user+}
+* {MasterMayI::ControllerExtensions::InstanceMethods#deny_access +deny_access+}
+* {MasterMayI::ControllerExtensions::InstanceMethods#store_location +store_location+}
+* {MasterMayI::ControllerExtensions::InstanceMethods#redirect_back_or +redirect_back_or url+}
 
 == Model Level Authorization
 

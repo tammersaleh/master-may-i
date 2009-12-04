@@ -20,7 +20,7 @@
       <div id="menu">
   
     <a href="../_index.html">Index (A)</a> &raquo; 
-    <a href="../MasterMayI.html" title="MasterMayI">MasterMayI</a>
+    <a title="MasterMayI" href="../MasterMayI.html">MasterMayI</a>
      &raquo; 
     <span class="title">ActiveRecordExtensions</span>
   
@@ -56,11 +56,75 @@
 </dl>
 <div class="clear"></div>
 
-<h2>Defined Under Namespace</h2>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+I add authorization query methods to every ActiveRecord model (through
+ActiveRecord::Base).
+</p>
+<p>
+Each model is given the following methods:
+</p>
+<h2>Class methods:</h2>
+<ul>
+<li><tt>Model.creatable_by? user</tt>
+
+</li>
+<li><tt>Model.creatable?</tt>
+
+</li>
+</ul>
+<h2>Instance methods:</h2>
+<ul>
+<li><tt>@model.readable_by? user</tt>
+
+</li>
+<li><tt>@model.readable?</tt>
+
+</li>
+<li><tt>@model.editable_by? user</tt>
+
+</li>
+<li><tt>@model.editable?</tt>
+
+</li>
+<li><tt>@model.destroyable_by? user</tt>
+
+</li>
+<li><tt>@model.destroyable?</tt>
+
+</li>
+</ul>
+<h2>Customization</h2>
+<p>
+Each of the <tt>creatable_by?</tt>, <tt>readable_by?</tt>,
+<tt>editable_by?</tt> and <tt>destroyable_by?</tt> methods return true by
+default, and should be redefined by each model in turn.
+</p>
+<p>
+Each of the <tt>creatable?</tt>, <tt>readable?</tt>, <tt>editable?</tt> and
+<tt>destroyable?</tt> methods simply delegate to the <tt>xxx_by?</tt>
+methods, passing in the currently logged in user. The currently logged in
+user is returned by the
+<tt><a title="<tt>user_from_session</tt>" href="ActiveRecordExtensions/ClassMethods.html#user_from_session-instance_method"><tt>user_from_session</tt></a></tt> method, which looks at the Authlogic
+UserSession model.
+</p>
+<p>
+*Do not override the creatable?, readable?, editable? or destroyable?
+methods. Redefine the creatable_by?, readable_by?, editable_by? and
+destroyable_by?* methods instead.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <a href="ActiveRecordExtensions/ClassMethods.html" title="ClassMethods">ClassMethods</a>, <a href="ActiveRecordExtensions/InstanceMethods.html" title="InstanceMethods">InstanceMethods</a>
+      <strong class="modules">Modules:</strong> <a title="ClassMethods" href="ActiveRecordExtensions/ClassMethods.html">ClassMethods</a>, <a title="InstanceMethods" href="ActiveRecordExtensions/InstanceMethods.html">InstanceMethods</a>
     
    
     
@@ -74,7 +138,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 16:33:53 2009 by 
+  Generated on Thu Dec  3 17:33:46 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

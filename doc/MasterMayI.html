@@ -51,60 +51,16 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/master_may_i/active_record_extensions.rb<span class="defines">,<br />
-  lib/master_may_i/inherited_resources_extensions.rb</span>
-</dd>
+    <dd class="r1 last">lib/master_may_i.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>
-I add authorization query methods to every ActiveRecord model (through
-ActiveRecord::Base).
-</p>
-<p>
-Each model is given the following methods:
-</p>
-<h2>Class methods:</h2>
-<pre class="code">
-  <span class='Model constant id'>Model</span><span class='dot token'>.</span><span class='creatable? fid id'>creatable?</span>
-  <span class='Model constant id'>Model</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span> <span class='user identifier id'>user</span>
-</pre>
-<h2>Instance methods:</h2>
-<pre class="code">
-  <span class='@model ivar id'>@model</span><span class='dot token'>.</span><span class='readable? fid id'>readable?</span>
-  <span class='@model ivar id'>@model</span><span class='dot token'>.</span><span class='readable_by? fid id'>readable_by?</span> <span class='user identifier id'>user</span>
-  <span class='@model ivar id'>@model</span><span class='dot token'>.</span><span class='editable? fid id'>editable?</span>
-  <span class='@model ivar id'>@model</span><span class='dot token'>.</span><span class='editable_by? fid id'>editable_by?</span> <span class='user identifier id'>user</span>
-  <span class='@model ivar id'>@model</span><span class='dot token'>.</span><span class='destroyable? fid id'>destroyable?</span>
-  <span class='@model ivar id'>@model</span><span class='dot token'>.</span><span class='destroyable_by? fid id'>destroyable_by?</span> <span class='user identifier id'>user</span>
-</pre>
-<h2>Customization</h2>
-<p>
-The xxx_by? methods all return true by default, and should be redefined by
-each model in turn.
-</p>
-<p>
-Each of the creatable?, readable?, editable? and destroyable? methods
-simply delegate to the xxx_by? methods, using the currently logged in user.
-</p>
-<p>
-*Do not override the creatable?, readable?, editable? or destroyable?
-methods.*
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><h2>Defined Under Namespace</h2>
+<h2>Defined Under Namespace</h2>
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <a href="MasterMayI/ActiveRecordExtensions.html" title="ActiveRecordExtensions">ActiveRecordExtensions</a>, <a href="MasterMayI/InheritedResourcesExtensions.html" title="InheritedResourcesExtensions">InheritedResourcesExtensions</a>
+      <strong class="modules">Modules:</strong> <a title="ActiveRecordExtensions" href="MasterMayI/ActiveRecordExtensions.html">ActiveRecordExtensions</a>, <a title="ControllerExtensions" href="MasterMayI/ControllerExtensions.html">ControllerExtensions</a>
     
    
     
@@ -118,7 +74,7 @@ methods.*
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 16:33:53 2009 by 
+  Generated on Thu Dec  3 17:33:47 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>
