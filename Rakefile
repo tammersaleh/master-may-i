@@ -34,7 +34,6 @@ task :test do
   system("cd #{rails_root} && rake")
 end
 
-
 begin
   require 'rcov/rcovtask'
   Rcov::RcovTask.new do |test|
