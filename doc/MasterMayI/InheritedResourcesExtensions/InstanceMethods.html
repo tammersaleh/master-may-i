@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Module: MasterMayI::InheritedResourcesExtensions::InstanceMethods</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (I)</a> &raquo; 
+    <a href="../../MasterMayI.html" title="MasterMayI">MasterMayI</a> &raquo; <a href="../InheritedResourcesExtensions.html" title="InheritedResourcesExtensions">InheritedResourcesExtensions</a>
+     &raquo; 
+    <span class="title">InstanceMethods</span>
+  
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Namespace List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: MasterMayI::InheritedResourcesExtensions::InstanceMethods 
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/master_may_i/inherited_resources_extensions.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  <h2>Method Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#included-class_method" title="included (class method)">+ (Object) <strong>included</strong>(controller) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#current_user-instance_method" title="#current_user (instance method)">- (Object) <strong>current_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#current_user_session-instance_method" title="#current_user_session (instance method)">- (Object) <strong>current_user_session</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#deny_access-instance_method" title="#deny_access (instance method)">- (Object) <strong>deny_access</strong>(opts = {}) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#logged_in%3F-instance_method" title="#logged_in? (instance method)">- (Object) <strong>logged_in?</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_flash_for_user-instance_method" title="#permission_denied_flash_for_user (instance method)">- (Object) <strong>permission_denied_flash_for_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_flash_for_visitor-instance_method" title="#permission_denied_flash_for_visitor (instance method)">- (Object) <strong>permission_denied_flash_for_visitor</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_redirect_for_user-instance_method" title="#permission_denied_redirect_for_user (instance method)">- (Object) <strong>permission_denied_redirect_for_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_redirect_for_visitor-instance_method" title="#permission_denied_redirect_for_visitor (instance method)">- (Object) <strong>permission_denied_redirect_for_visitor</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#redirect_back_or-instance_method" title="#redirect_back_or (instance method)">- (Object) <strong>redirect_back_or</strong>(url) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#require_user-instance_method" title="#require_user (instance method)">- (Object) <strong>require_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#store_location-instance_method" title="#store_location (instance method)">- (Object) <strong>store_location</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  <div id="method_details">
+    <h2>Method Details</h2>
+    
+      <div class="method_details first">
+  <p class="signature first" id="included-class_method">
+  
+    + (<tt>Object</tt>) <strong>included</strong>(controller) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 34</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='controller identifier id'>controller</span><span class='rparen token'>)</span>
+  <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='helper_method identifier id'>helper_method</span> <span class='symbol val'>:current_user_session</span><span class='comma token'>,</span> <span class='symbol val'>:current_user</span><span class='comma token'>,</span> <span class='symbol val'>:logged_in?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="current_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>current_user</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 43</span>
+
+<span class='def def kw'>def</span> <span class='current_user identifier id'>current_user</span>
+  <span class='return return kw'>return</span> <span class='@current_user ivar id'>@current_user</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='@current_user ivar id'>@current_user</span><span class='rparen token'>)</span>
+  <span class='@current_user ivar id'>@current_user</span> <span class='assign token'>=</span> <span class='current_user_session identifier id'>current_user_session</span> <span class='andop op'>&amp;&amp;</span> <span class='current_user_session identifier id'>current_user_session</span><span class='dot token'>.</span><span class='user identifier id'>user</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="current_user_session-instance_method">
+  
+    - (<tt>Object</tt>) <strong>current_user_session</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 38</span>
+
+<span class='def def kw'>def</span> <span class='current_user_session identifier id'>current_user_session</span>
+  <span class='return return kw'>return</span> <span class='@current_user_session ivar id'>@current_user_session</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='@current_user_session ivar id'>@current_user_session</span><span class='rparen token'>)</span>
+  <span class='@current_user_session ivar id'>@current_user_session</span> <span class='assign token'>=</span> <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="deny_access-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deny_access</strong>(opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 56</span>
+
+<span class='def def kw'>def</span> <span class='deny_access identifier id'>deny_access</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='logged_in? fid id'>logged_in?</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:flash</span><span class='rbrack token'>]</span>       <span class='opasgn op'>||=</span> <span class='permission_denied_flash_for_user identifier id'>permission_denied_flash_for_user</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_to</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='permission_denied_redirect_for_user identifier id'>permission_denied_redirect_for_user</span>
+  <span class='else else kw'>else</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:flash</span><span class='rbrack token'>]</span>       <span class='opasgn op'>||=</span> <span class='permission_denied_flash_for_visitor identifier id'>permission_denied_flash_for_visitor</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_to</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='permission_denied_redirect_for_visitor identifier id'>permission_denied_redirect_for_visitor</span>
+  <span class='end end kw'>end</span>
+
+  <span class='store_location identifier id'>store_location</span>
+  <span class='flash identifier id'>flash</span><span class='lbrack token'>[</span><span class='symbol val'>:notice</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:flash</span><span class='rbrack token'>]</span>
+  <span class='redirect_to identifier id'>redirect_to</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_to</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="logged_in?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>logged_in?</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 48</span>
+
+<span class='def def kw'>def</span> <span class='logged_in? fid id'>logged_in?</span>
+  <span class='notop op'>!</span><span class='notop op'>!</span> <span class='current_user identifier id'>current_user</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_flash_for_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_flash_for_user</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 70</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_flash_for_user identifier id'>permission_denied_flash_for_user</span>
+  <span class='string val'>&quot;You don't have permission to access this page.&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_flash_for_visitor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_flash_for_visitor</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 74</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_flash_for_visitor identifier id'>permission_denied_flash_for_visitor</span>
+  <span class='string val'>&quot;Please login.&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_redirect_for_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_redirect_for_user</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 78</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_redirect_for_user identifier id'>permission_denied_redirect_for_user</span>
+  <span class='root_url identifier id'>root_url</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_redirect_for_visitor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_redirect_for_visitor</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 82</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_redirect_for_visitor identifier id'>permission_denied_redirect_for_visitor</span>
+  <span class='login_url identifier id'>login_url</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="redirect_back_or-instance_method">
+  
+    - (<tt>Object</tt>) <strong>redirect_back_or</strong>(url) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 90</span>
+
+<span class='def def kw'>def</span> <span class='redirect_back_or identifier id'>redirect_back_or</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='redirect_to identifier id'>redirect_to</span><span class='lparen token'>(</span><span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="require_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>require_user</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 52</span>
+
+<span class='def def kw'>def</span> <span class='require_user identifier id'>require_user</span>
+  <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='current_user identifier id'>current_user</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="store_location-instance_method">
+  
+    - (<tt>Object</tt>) <strong>store_location</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/inherited_resources_extensions.rb', line 86</span>
+
+<span class='def def kw'>def</span> <span class='store_location identifier id'>store_location</span>
+  <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='request_uri identifier id'>request_uri</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Thu Dec  3 16:33:53 2009 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.4.0 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: ActiveSupport::TestCase</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    ActiveSupport
+     &raquo; 
+    <span class="title">TestCase</span>
+  
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Namespace List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: ActiveSupport::TestCase 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">shoulda_macros/active_record_macros.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  <h2>Method Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_be_creatable_by-class_method" title="should_be_creatable_by (class method)">+ (Object) <strong>should_be_creatable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_be_destroyable_by-class_method" title="should_be_destroyable_by (class method)">+ (Object) <strong>should_be_destroyable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_be_editable_by-class_method" title="should_be_editable_by (class method)">+ (Object) <strong>should_be_editable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_be_readable_by-class_method" title="should_be_readable_by (class method)">+ (Object) <strong>should_be_readable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_not_be_creatable_by-class_method" title="should_not_be_creatable_by (class method)">+ (Object) <strong>should_not_be_creatable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_not_be_destroyable_by-class_method" title="should_not_be_destroyable_by (class method)">+ (Object) <strong>should_not_be_destroyable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_not_be_editable_by-class_method" title="should_not_be_editable_by (class method)">+ (Object) <strong>should_not_be_editable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_not_be_readable_by-class_method" title="should_not_be_readable_by (class method)">+ (Object) <strong>should_not_be_readable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#should_record_creating_user-class_method" title="should_record_creating_user (class method)">+ (Object) <strong>should_record_creating_user</strong>(opts = {}) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  <div id="method_details">
+    <h2>Method Details</h2>
+    
+      <div class="method_details first">
+  <p class="signature first" id="should_be_creatable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_be_creatable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+2
+3
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 2</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_be_destroyable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_be_destroyable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 38</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_be_editable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_be_editable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 26</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_be_readable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_be_readable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 14</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_not_be_creatable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_not_be_creatable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 8</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_not_be_destroyable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_not_be_destroyable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 44</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_not_be_editable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_not_be_editable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 32</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_not_be_readable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_not_be_readable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 20</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_record_creating_user-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_record_creating_user</strong>(opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 50</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_record_creating_user identifier id'>should_record_creating_user</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='association_name identifier id'>association_name</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:as</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:creator</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+
+  <span class='should_belong_to identifier id'>should_belong_to</span> <span class='association_name identifier id'>association_name</span>
+
+  <span class='context identifier id'>context</span> <span class='string val'>&quot;when there's not a logged in user&quot;</span> <span class='do do kw'>do</span>
+    <span class='setup identifier id'>setup</span> <span class='do do kw'>do</span>
+      <span class='Authlogic constant id'>Authlogic</span><span class='colon2 op'>::</span><span class='Session constant id'>Session</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span><span class='dot token'>.</span><span class='controller identifier id'>controller</span> <span class='assign token'>=</span> <span class='Authlogic constant id'>Authlogic</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span><span class='colon2 op'>::</span><span class='MockController constant id'>MockController</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='andop op'>&amp;&amp;</span> <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='destroy identifier id'>destroy</span>
+    <span class='end end kw'>end</span>
+
+    <span class='context identifier id'>context</span> <span class='dstring node'>&quot;a new #{subject.class}&quot;</span> <span class='do do kw'>do</span>
+      <span class='should identifier id'>should</span> <span class='string val'>&quot;not blow up&quot;</span> <span class='do do kw'>do</span>
+        <span class='@record ivar id'>@record</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='underscore identifier id'>underscore</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='context identifier id'>context</span> <span class='string val'>&quot;when there's a logged in user&quot;</span> <span class='do do kw'>do</span>
+    <span class='setup identifier id'>setup</span> <span class='do do kw'>do</span>
+      <span class='Authlogic constant id'>Authlogic</span><span class='colon2 op'>::</span><span class='Session constant id'>Session</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span><span class='dot token'>.</span><span class='controller identifier id'>controller</span> <span class='assign token'>=</span> <span class='Authlogic constant id'>Authlogic</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span><span class='colon2 op'>::</span><span class='MockController constant id'>MockController</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='@user ivar id'>@user</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+
+    <span class='context identifier id'>context</span> <span class='dstring node'>&quot;a new #{subject.class}&quot;</span> <span class='do do kw'>do</span>
+      <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='@record ivar id'>@record</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='underscore identifier id'>underscore</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+
+      <span class='should identifier id'>should</span> <span class='dstring node'>&quot;record that user on create as #{association_name}&quot;</span> <span class='do do kw'>do</span>
+        <span class='assert_equal identifier id'>assert_equal</span><span class='lparen token'>(</span><span class='@user ivar id'>@user</span><span class='comma token'>,</span> <span class='@record ivar id'>@record</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='association_name identifier id'>association_name</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+
+      <span class='should identifier id'>should</span> <span class='string val'>&quot;have been created by the user&quot;</span> <span class='do do kw'>do</span>
+        <span class='assert identifier id'>assert</span> <span class='@record ivar id'>@record</span><span class='dot token'>.</span><span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='@user ivar id'>@user</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+
+      <span class='should identifier id'>should</span> <span class='string val'>&quot;not have been created by another user&quot;</span> <span class='do do kw'>do</span>
+        <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='@record ivar id'>@record</span><span class='dot token'>.</span><span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+
+      <span class='should identifier id'>should</span> <span class='string val'>&quot;not have been created by nil&quot;</span> <span class='do do kw'>do</span>
+        <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='@record ivar id'>@record</span><span class='dot token'>.</span><span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Thu Dec  3 16:33:53 2009 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.4.0 (ruby-1.8.6).
+</div>
+
+  </body>
+</html>
