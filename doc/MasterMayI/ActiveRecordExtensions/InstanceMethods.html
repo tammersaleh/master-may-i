@@ -226,12 +226,12 @@ Should the current user be able to destroy this record? Delegates to
       <pre class="lines">
 
 
-123
-124
-125</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 148</span>
 
 <span class='def def kw'>def</span> <span class='destroyable? fid id'>destroyable?</span>
   <span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -260,19 +260,47 @@ redefined inside the model.
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_destroyable_by-class_method" title="ActiveSupport::TestCase.should_be_destroyable_by">ActiveSupport::TestCase.should_be_destroyable_by</a></li>
+    
+  </ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-129
-130
-131</pre>
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 158</span>
 
 <span class='def def kw'>def</span> <span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -308,12 +336,12 @@ Should the current user be able to edit this record? Delegates to
       <pre class="lines">
 
 
-112
-113
-114</pre>
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 133</span>
 
 <span class='def def kw'>def</span> <span class='editable? fid id'>editable?</span>
   <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -342,19 +370,47 @@ redefined inside the model.
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_editable_by-class_method" title="ActiveSupport::TestCase.should_be_editable_by">ActiveSupport::TestCase.should_be_editable_by</a></li>
+    
+  </ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-118
-119
-120</pre>
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 143</span>
 
 <span class='def def kw'>def</span> <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -390,12 +446,12 @@ Should the current user be able to read this record? Delegates to
       <pre class="lines">
 
 
-101
-102
-103</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 118</span>
 
 <span class='def def kw'>def</span> <span class='readable? fid id'>readable?</span>
   <span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -424,19 +480,47 @@ redefined inside the model.
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_readable_by-class_method" title="ActiveSupport::TestCase.should_be_readable_by">ActiveSupport::TestCase.should_be_readable_by</a></li>
+    
+  </ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-107
-108
-109</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 128</span>
 
 <span class='def def kw'>def</span> <span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -478,12 +562,12 @@ Returns the currently logged in user via the Authlogic UserSession class.
       <pre class="lines">
 
 
-135
-136
-137</pre>
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 164</span>
 
 <span class='def def kw'>def</span> <span class='user_from_session identifier id'>user_from_session</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='user_from_session identifier id'>user_from_session</span>
@@ -499,7 +583,7 @@ Returns the currently logged in user via the Authlogic UserSession class.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 08:03:19 2009 by 
+  Generated on Fri Dec  4 09:07:16 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

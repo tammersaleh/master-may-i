@@ -99,23 +99,33 @@ Use these methods throughout your application to determine who can do what.
 <pre class="code">
   <span class='link_to_if identifier id'>link_to_if</span> <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='editable? fid id'>editable?</span><span class='comma token'>,</span> <span class='string val'>&quot;edit note&quot;</span><span class='comma token'>,</span> <span class='edit_note_url identifier id'>edit_note_url</span>
 </pre>
-<h2>Customization</h2>
+<h3>Customization</h3>
 <p>
 Each of the <tt>creatable_by?</tt>, <tt>readable_by?</tt>,
 <tt>editable_by?</tt> and <tt>destroyable_by?</tt> methods return true by
 default, and should be redefined by each model in turn.
 </p>
+<h3>Example</h3>
 <pre class="code">
- <span class='class class kw'>class</span> <span class='Note constant id'>Note</span> <span class='lt op'>&lt;</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
-   <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
-     <span class='user identifier id'>user</span>
-   <span class='end end kw'>end</span>
+  <span class='class class kw'>class</span> <span class='Note constant id'>Note</span> <span class='lt op'>&lt;</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='records_creating_user identifier id'>records_creating_user</span> <span class='symbol val'>:as</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:owner</span>
 
-   <span class='def def kw'>def</span> <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
-     <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='unless unless_mod kw'>unless</span> <span class='user identifier id'>user</span>
-     <span class='user identifier id'>user</span><span class='dot token'>.</span><span class='administrator? fid id'>administrator?</span> <span class='or or kw'>or</span> <span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
-   <span class='end end kw'>end</span>
- <span class='end end kw'>end</span>
+    <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+      <span class='user identifier id'>user</span>
+    <span class='end end kw'>end</span>
+
+    <span class='def def kw'>def</span> <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+      <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='unless unless_mod kw'>unless</span> <span class='user identifier id'>user</span>
+      <span class='user identifier id'>user</span><span class='dot token'>.</span><span class='administrator? fid id'>administrator?</span> <span class='or or kw'>or</span> <span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='@note ivar id'>@note</span> <span class='assign token'>=</span> <span class='Note constant id'>Note</span><span class='dot token'>.</span><span class='create identifier id'>create</span>               <span class='comment val'># Inside the controller</span>
+  <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='owner identifier id'>owner</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='User constant id'>User</span> <span class='record identifier id'>record</span> <span class='set identifier id'>set</span> <span class='via identifier id'>via</span> <span class='Authlogic constant id'>Authlogic</span> <span class='session identifier id'>session</span>
+  <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='owner identifier id'>owner</span><span class='rparen token'>)</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span>
+  <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>           <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span>
+  <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='other_user identifier id'>other_user</span><span class='rparen token'>)</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span>
+  <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='other_user identifier id'>other_user</span><span class='rparen token'>)</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span> <span class='comment val'># ...since that's the default</span>
 </pre>
 <p>
 Each of the <tt>creatable?</tt>, <tt>readable?</tt>, <tt>editable?</tt> and
@@ -150,7 +160,7 @@ UserSession model.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 08:03:20 2009 by 
+  Generated on Fri Dec  4 09:07:16 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

@@ -1,6 +1,8 @@
-# == Unit test Shoulda macros
+# = Unit test Shoulda macros
 #
 # These macros are very useful.  Use them.
+#
+# == Example
 #
 #   class NoteTest < ActiveSupport::TestCase
 #     setup :activate_authlogic

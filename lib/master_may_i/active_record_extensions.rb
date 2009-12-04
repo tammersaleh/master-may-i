@@ -21,22 +21,33 @@
 #
 #   link_to_if @note.editable?, "edit note", edit_note_url
 #
-# == Customization
+# === Customization
 #
 # Each of the +creatable_by?+, +readable_by?+, +editable_by?+ and
 # +destroyable_by?+ methods return true by default, and should be redefined by
 # each model in turn.
 #
-#  class Note < ActiveRecord::Base
-#    def self.creatable_by?(user)
-#      user
-#    end
+# === Example
 #
-#    def editable_by?(user)
-#      return false unless user
-#      user.administrator? or created_by?(user)
-#    end
-#  end
+#   class Note < ActiveRecord::Base
+#     records_creating_user :as => :owner
+#
+#     def self.creatable_by?(user)
+#       user
+#     end
+#
+#     def editable_by?(user)
+#       return false unless user
+#       user.administrator? or created_by?(user)
+#     end
+#   end
+#
+#   @note = Note.create               # Inside the controller
+#   @note.owner                       => User record set via Authlogic session
+#   @note.editable_by?(@note.owner)   => true
+#   @note.editable_by?(nil)           => false
+#   @note.editable_by?(other_user)    => false
+#   @note.destroyable_by?(other_user) => true # ...since that's the default
 #
 # Each of the +creatable?+, +readable?+, +editable?+ and +destroyable?+ methods simply
 # delegate to the +xxx_by?+ methods, passing in the currently logged in user.
@@ -55,6 +66,10 @@ module MasterMayI::ActiveRecordExtensions
 
     # Should the given user be able to create a record?  This method should be
     # redefined inside the model.
+    #
+    # @param user [User, nil] Either a user record, or nil for visitors.
+    #
+    # @see ActiveSupport::TestCase.should_be_creatable_by
     def creatable_by?(user)
       true
     end
@@ -68,15 +83,17 @@ module MasterMayI::ActiveRecordExtensions
 
     # Record the +user_from_session+ as the +creator+ when creating a new record.
     #
-    # This macro also adds the +@model.created_by?(user)+ method.
+    # This adds a belongs_to association named :creator, the +@model.created_by?(user)+ method, and a before_validation_on_create method that sets the user from the Authlogic session.
+    #
+    # @option opts [Symbol] :as (:creator) The name of the association that holds the creating user.
     #
     # @see MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session
-    # @option opts [Symbol] :as (:creator) The name of the association that holds the creating user.
+    # @see ActiveSupport::TestCase.should_record_creating_user
     def records_creating_user(opts_hash = {})
       opts = HashWithIndifferentAccess.new(opts_hash)
       association_name = (opts[:as] || :creator).to_sym
 
-      before_create :set_creating_user_from_session
+      before_validation_on_create :set_creating_user_from_session
       unless reflect_on_association(association_name)
         if association_name == :user
           belongs_to :user
@@ -104,6 +121,10 @@ module MasterMayI::ActiveRecordExtensions
 
     # Should the given user be able to read this record?  This method should be
     # redefined inside the model.
+    #
+    # @param user [User, nil] Either a user record, or nil for visitors.
+    #
+    # @see ActiveSupport::TestCase.should_be_readable_by
     def readable_by?(user)
       true
     end
@@ -115,6 +136,10 @@ module MasterMayI::ActiveRecordExtensions
 
     # Should the given user be able to edit this record?  This method should be
     # redefined inside the model.
+    #
+    # @param user [User, nil] Either a user record, or nil for visitors.
+    #
+    # @see ActiveSupport::TestCase.should_be_editable_by
     def editable_by?(user)
       true
     end
@@ -126,6 +151,10 @@ module MasterMayI::ActiveRecordExtensions
 
     # Should the given user be able to destroy this record?  This method should be
     # redefined inside the model.
+    #
+    # @param user [User, nil] Either a user record, or nil for visitors.
+    #
+    # @see ActiveSupport::TestCase.should_be_destroyable_by
     def destroyable_by?(user)
       true
     end

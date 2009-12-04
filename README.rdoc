@@ -6,7 +6,9 @@
 
 == Overview
 
-{MasterMayI Master May I} adds query methods to all your models, which can be used to determine who's allowed to do what. {MasterMayI::ActiveRecordExtensions Learn more.}
+{MasterMayI Master May I} adds query methods to all your models, which can be
+used to determine who's allowed to do what. {MasterMayI::ActiveRecordExtensions
+Learn more.}
 
 * {MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by? +Model.creatable_by?(user)+} 
   and 
@@ -21,7 +23,8 @@
   and 
   {MasterMayI::ActiveRecordExtensions::InstanceMethods#destroyable? +@model.destroyable?+} 
 
-These are just methods (that default to always returning true), so customizing the rules is as easy as overriding the methods:
+These are just methods (that default to always returning true), so customizing
+the rules is as easy as overriding the methods:
 
   class Note < ActiveRecord::Base
     def self.creatable_by?(user)
@@ -29,7 +32,12 @@ These are just methods (that default to always returning true), so customizing t
     end
   end
 
-If you call {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user +records_creating_user+} in your model, then the user from the Authlogic UserSession is automatically stored whenever a record is created.  {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user Learn more.}
+If you call
+{MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user
++records_creating_user+} in your model, then the user from the Authlogic
+UserSession is automatically stored whenever a record is created.
+{MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user Learn
+more.}
 
   class Note < ActiveRecord::Base
     records_creating_user
@@ -39,7 +47,12 @@ If you call {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_u
     end
   end
 
-MasterMayI also includes the {MasterMayI::ControllerExtensions#protects_restful_actions +protects_restful_actions+} controller class method, which integrates with InheritedResources in order to automatically check with the model in a set of before filters.  {MasterMayI::ControllerExtensions#protects_restful_actions Learn more.}
+MasterMayI also includes the
+{MasterMayI::ControllerExtensions#protects_restful_actions
++protects_restful_actions+} controller class method, which integrates with
+InheritedResources in order to automatically check with the model in a set of
+before filters.  {MasterMayI::ControllerExtensions#protects_restful_actions
+Learn more.}
 
   class NotesController < InheritedResources::Base
     protects_restful_actions
@@ -58,7 +71,44 @@ Finally, MasterMayI adds a few utility methods to your ApplicationController:
 
 == Testing
 
-Master May I comes with a strong set of Shoulda macros for both your {ActiveSupport::TestCase unit tests} and your {ActionController::TestCase functional tests}.  
+Master May I comes with a strong set of Shoulda macros for both your
+{ActiveSupport::TestCase unit tests} and your {ActionController::TestCase
+functional tests}.  
+
+
+  class NoteTest < ActiveSupport::TestCase
+    setup :activate_authlogic
+  
+    should_record_creating_user :as => "user"
+  
+    should_be_creatable_by("boy named sue-create") { Factory(:user, :username => "sue-create")  }
+    should_not_be_creatable_by("everyone")         { nil }
+  
+    context "a note" do
+      setup { @note = Factory(:note) }
+      subject { @note }
+  
+      should_be_readable_by("boy named sue-read")       { Factory(:user, :username => "sue-read")    }
+      should_be_editable_by("boy named sue-edit")       { Factory(:user, :username => "sue-edit")    }
+      should_be_destroyable_by("boy named sue-destroy") { Factory(:user, :username => "sue-destroy") }
+  
+      should_not_be_readable_by(   "everyone") { nil }
+      should_not_be_editable_by(   "everyone") { nil }
+      should_not_be_destroyable_by("everyone") { nil }
+    end
+  end
+
+  class NotesControllerTest < ActionController::TestCase
+    setup :activate_authlogic
+    
+    as_a_logged_in_user do
+      who_can_manage :notes do
+        context "on GET to /notes/new" do
+          setup { get :new }
+          should_not_set_the_flash
+          should_render_template :new
+        end
+        ...
 
 == Installation
 
@@ -66,7 +116,9 @@ Master May I is hosted on gemcutter, so installation is as easy as:
 
   sudo gem install master_may_i
 
-It relies heavily on Authlogic, and uses the +resource+ and +resource_class+ methods from InheritedResources.  The before filters expect there to be the following named route:
+It relies heavily on Authlogic, and uses the +resource+ and +resource_class+
+methods from InheritedResources.  The before filters expect there to be the
+following named route:
 
   map.login "/login", :controller => :user_session, :action => :new
 

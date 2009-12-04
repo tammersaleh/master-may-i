@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{master_may_i}
-  s.version = "0.2.1"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tammer Saleh"]
-  s.date = %q{2009-12-03}
+  s.date = %q{2009-12-04}
   s.description = %q{Super simple model based authorization designed to work with AuthLogic and InheritedResources}
   s.email = %q{tsaleh@gmail.com}
   s.extra_rdoc_files = [
@@ -19,16 +19,45 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     ".yardoc",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "doc/ActionController/Base.html",
+     "doc/ActionController/TestCase.html",
+     "doc/ActiveRecord/Base.html",
+     "doc/ActiveSupport/TestCase.html",
+     "doc/MasterMayI.html",
+     "doc/MasterMayI/ActiveRecordExtensions.html",
+     "doc/MasterMayI/ActiveRecordExtensions/ClassMethods.html",
+     "doc/MasterMayI/ActiveRecordExtensions/InstanceMethods.html",
+     "doc/MasterMayI/ControllerExtensions.html",
+     "doc/MasterMayI/ControllerExtensions/Filters.html",
+     "doc/MasterMayI/ControllerExtensions/InstanceMethods.html",
+     "doc/MasterMayI/InheritedResourcesExtensions.html",
+     "doc/MasterMayI/InheritedResourcesExtensions/Filters.html",
+     "doc/MasterMayI/InheritedResourcesExtensions/InstanceMethods.html",
+     "doc/Note.html",
+     "doc/_index.html",
+     "doc/class_list.html",
+     "doc/css/common.css",
+     "doc/css/full_list.css",
+     "doc/css/style.css",
+     "doc/file.README.html",
+     "doc/file_list.html",
+     "doc/index.html",
+     "doc/js/app.js",
+     "doc/js/full_list.js",
+     "doc/js/jquery.js",
+     "doc/method_list.html",
+     "doc/top-level-namespace.html",
      "lib/master_may_i.rb",
      "lib/master_may_i/active_record_extensions.rb",
-     "lib/master_may_i/inherited_resources_extensions.rb",
+     "lib/master_may_i/controller_extensions.rb",
      "master_may_i.gemspec",
      "shoulda_macros/active_record_macros.rb",
-     "shoulda_macros/inherited_resources_macros.rb",
+     "shoulda_macros/controller_macros.rb",
      "test/database.yml",
      "test/factories.rb",
      "test/helper.rb",
@@ -95,7 +124,7 @@ Gem::Specification.new do |s|
      "test/schema.rb",
      "test/test_master_may_i.rb"
   ]
-  s.homepage = %q{http://github.com/tsaleh/master_may_i}
+  s.homepage = %q{http://github.com/tsaleh/master-may-i}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}

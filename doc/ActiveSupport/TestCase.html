@@ -65,10 +65,11 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <h2>Unit test Shoulda macros</h2>
+    <h1>Unit test Shoulda macros</h1>
 <p>
 These macros are very useful. Use them.
 </p>
+<h2>Example</h2>
 <pre class="code">
   <span class='class class kw'>class</span> <span class='NoteTest constant id'>NoteTest</span> <span class='lt op'>&lt;</span> <span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
     <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
@@ -354,14 +355,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-34
-35
 36
 37
-38</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 36</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -446,14 +447,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-106
-107
 108
 109
-110</pre>
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 108</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -538,14 +539,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-82
-83
 84
 85
-86</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 84</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -630,14 +631,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-58
-59
 60
 61
-62</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 60</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -722,14 +723,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-46
-47
 48
 49
-50</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 48</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -814,14 +815,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-118
-119
 120
 121
-122</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 120</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -906,14 +907,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-94
-95
 96
 97
-98</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 96</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -998,14 +999,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-70
-71
 72
 73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 72</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -1074,8 +1075,6 @@ The name of the association that holds the creating user.
       <pre class="lines">
 
 
-128
-129
 130
 131
 132
@@ -1118,10 +1117,12 @@ The name of the association that holds the creating user.
 169
 170
 171
-172</pre>
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 130</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_record_creating_user identifier id'>should_record_creating_user</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='association_name identifier id'>association_name</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:as</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:creator</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
@@ -1179,7 +1180,7 @@ The name of the association that holds the creating user.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 08:03:19 2009 by 
+  Generated on Fri Dec  4 09:07:15 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

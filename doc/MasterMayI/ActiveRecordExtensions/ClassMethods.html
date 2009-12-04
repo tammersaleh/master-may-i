@@ -169,12 +169,12 @@ Should the current user be able to create a record? Delegates to
       <pre class="lines">
 
 
-52
-53
-54</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 63</span>
 
 <span class='def def kw'>def</span> <span class='creatable? fid id'>creatable?</span>
   <span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -203,19 +203,47 @@ redefined inside the model.
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_creatable_by-class_method" title="ActiveSupport::TestCase.should_be_creatable_by">ActiveSupport::TestCase.should_be_creatable_by</a></li>
+    
+  </ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-58
-59
-60</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 73</span>
 
 <span class='def def kw'>def</span> <span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -240,7 +268,9 @@ Record the <tt>user_from_session</tt> as the <tt>creator</tt> when creating
 a new record.
 </p>
 <p>
-This macro also adds the <tt>@model.created_by?(user)</tt> method.
+This adds a belongs_to association named :creator, the
+<tt>@model.created_by?(user)</tt> method, and a before_validation_on_create
+method that sets the user from the Authlogic session.
 </p>
 
 
@@ -257,6 +287,8 @@ This macro also adds the <tt>@model.created_by?(user)</tt> method.
     
       <li><a href="#user_from_session-instance_method" title="MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session">MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session</a></li>
     
+      <li><a href="../../ActiveSupport/TestCase.html#should_record_creating_user-class_method" title="ActiveSupport::TestCase.should_record_creating_user">ActiveSupport::TestCase.should_record_creating_user</a></li>
+    
   </ul>
 
 </div><table class="source_code">
@@ -265,37 +297,37 @@ This macro also adds the <tt>@model.created_by?(user)</tt> method.
       <pre class="lines">
 
 
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
 92
 93
 94
 95
-96</pre>
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 92</span>
 
 <span class='def def kw'>def</span> <span class='records_creating_user identifier id'>records_creating_user</span><span class='lparen token'>(</span><span class='opts_hash identifier id'>opts_hash</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='HashWithIndifferentAccess constant id'>HashWithIndifferentAccess</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='opts_hash identifier id'>opts_hash</span><span class='rparen token'>)</span>
   <span class='association_name identifier id'>association_name</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:as</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:creator</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
 
-  <span class='before_create identifier id'>before_create</span> <span class='symbol val'>:set_creating_user_from_session</span>
+  <span class='before_validation_on_create identifier id'>before_validation_on_create</span> <span class='symbol val'>:set_creating_user_from_session</span>
   <span class='unless unless kw'>unless</span> <span class='reflect_on_association identifier id'>reflect_on_association</span><span class='lparen token'>(</span><span class='association_name identifier id'>association_name</span><span class='rparen token'>)</span>
     <span class='if if kw'>if</span> <span class='association_name identifier id'>association_name</span> <span class='eq op'>==</span> <span class='symbol val'>:user</span>
       <span class='belongs_to identifier id'>belongs_to</span> <span class='symbol val'>:user</span>
@@ -343,14 +375,14 @@ Returns the currently logged in user via the Authlogic UserSession class.
       <pre class="lines">
 
 
-63
-64
-65
-66
-67</pre>
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 78</span>
 
 <span class='def def kw'>def</span> <span class='user_from_session identifier id'>user_from_session</span>
   <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='andop op'>&amp;&amp;</span> <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='dot token'>.</span><span class='user identifier id'>user</span>
@@ -368,7 +400,7 @@ Returns the currently logged in user via the Authlogic UserSession class.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 08:03:20 2009 by 
+  Generated on Fri Dec  4 09:07:17 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

@@ -132,6 +132,41 @@ ApplicationController:
 Master May I comes with a strong set of Shoulda macros for both your
 <tt><a href="ActiveSupport/TestCase.html" title="unit tests">unit tests</a></tt> and your <tt><a href="ActionController/TestCase.html" title="functional tests">functional tests</a></tt>.
 </p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='NoteTest constant id'>NoteTest</span> <span class='lt op'>&lt;</span> <span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
+    <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
+
+    <span class='should_record_creating_user identifier id'>should_record_creating_user</span> <span class='symbol val'>:as</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;user&quot;</span>
+
+    <span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-create&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-create&quot;</span><span class='rparen token'>)</span>  <span class='rbrace token'>}</span>
+    <span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span>         <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+
+    <span class='context identifier id'>context</span> <span class='string val'>&quot;a note&quot;</span> <span class='do do kw'>do</span>
+      <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:note</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+      <span class='subject identifier id'>subject</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='rbrace token'>}</span>
+
+      <span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-read&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-read&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
+      <span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-edit&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-edit&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
+      <span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+
+      <span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span>   <span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span>   <span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='class class kw'>class</span> <span class='NotesControllerTest constant id'>NotesControllerTest</span> <span class='lt op'>&lt;</span> <span class='ActionController constant id'>ActionController</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
+    <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
+
+    <span class='as_a_logged_in_user identifier id'>as_a_logged_in_user</span> <span class='do do kw'>do</span>
+      <span class='who_can_manage identifier id'>who_can_manage</span> <span class='symbol val'>:notes</span> <span class='do do kw'>do</span>
+        <span class='context identifier id'>context</span> <span class='string val'>&quot;on GET to /notes/new&quot;</span> <span class='do do kw'>do</span>
+          <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='get identifier id'>get</span> <span class='symbol val'>:new</span> <span class='rbrace token'>}</span>
+          <span class='should_not_set_the_flash identifier id'>should_not_set_the_flash</span>
+          <span class='should_render_template identifier id'>should_render_template</span> <span class='symbol val'>:new</span>
+        <span class='end end kw'>end</span>
+        <span class='dot3 op'>...</span>
+</pre>
 <h2>Installation</h2>
 <p>
 Master May I is hosted on gemcutter, so installation is as easy as:
@@ -154,7 +189,7 @@ Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
 </div></div>
     
     <div id="footer">
-  Generated on Fri Dec  4 08:03:19 2009 by 
+  Generated on Fri Dec  4 09:07:15 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>
