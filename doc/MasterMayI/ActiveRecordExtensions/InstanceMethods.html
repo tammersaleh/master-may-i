@@ -226,12 +226,12 @@ Should the current user be able to destroy this record? Delegates to
       <pre class="lines">
 
 
-110
-111
-112</pre>
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 123</span>
 
 <span class='def def kw'>def</span> <span class='destroyable? fid id'>destroyable?</span>
   <span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -267,12 +267,12 @@ redefined inside the model.
       <pre class="lines">
 
 
-116
-117
-118</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 129</span>
 
 <span class='def def kw'>def</span> <span class='destroyable_by? fid id'>destroyable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -308,12 +308,12 @@ Should the current user be able to edit this record? Delegates to
       <pre class="lines">
 
 
-99
-100
-101</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 112</span>
 
 <span class='def def kw'>def</span> <span class='editable? fid id'>editable?</span>
   <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -349,12 +349,12 @@ redefined inside the model.
       <pre class="lines">
 
 
-105
-106
-107</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 118</span>
 
 <span class='def def kw'>def</span> <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -390,12 +390,12 @@ Should the current user be able to read this record? Delegates to
       <pre class="lines">
 
 
-88
-89
-90</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='readable? fid id'>readable?</span>
   <span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -431,12 +431,12 @@ redefined inside the model.
       <pre class="lines">
 
 
-94
-95
-96</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 107</span>
 
 <span class='def def kw'>def</span> <span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
@@ -478,12 +478,12 @@ Returns the currently logged in user via the Authlogic UserSession class.
       <pre class="lines">
 
 
-122
-123
-124</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 135</span>
 
 <span class='def def kw'>def</span> <span class='user_from_session identifier id'>user_from_session</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='user_from_session identifier id'>user_from_session</span>
@@ -499,7 +499,7 @@ Returns the currently logged in user via the Authlogic UserSession class.
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 17:33:46 2009 by 
+  Generated on Thu Dec  3 18:24:38 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

@@ -1,13 +1,12 @@
-# I add authorization query methods to every ActiveRecord model (through ActiveRecord::Base).
+# I add authorization query methods to every ActiveRecord model (through
+# ActiveRecord::Base).  Each model is given the following methods:
 #
-# Each model is given the following methods:
-#
-# == Class methods:
+# === {MasterMayI::ActiveRecordExtensions::ClassMethods Class methods}:
 #
 # * +Model.creatable_by? user+ 
 # * +Model.creatable?+ 
 #
-# == Instance methods:
+# === {MasterMayI::ActiveRecordExtensions::InstanceMethods Instance methods}:
 #
 # * +@model.readable_by? user+ 
 # * +@model.readable?+
@@ -16,11 +15,28 @@
 # * +@model.destroyable_by? user+ 
 # * +@model.destroyable?+
 #
+# == Usage
+#
+# Use these methods throughout your application to determine who can do what.
+#
+#   link_to_if @note.editable?, "edit note", edit_note_url
+#
 # == Customization
 #
 # Each of the +creatable_by?+, +readable_by?+, +editable_by?+ and
 # +destroyable_by?+ methods return true by default, and should be redefined by
 # each model in turn.
+#
+#  class Note < ActiveRecord::Base
+#    def self.creatable_by?(user)
+#      user
+#    end
+#
+#    def editable_by?(user)
+#      return false unless user
+#      user.administrator? or created_by?(user)
+#    end
+#  end
 #
 # Each of the +creatable?+, +readable?+, +editable?+ and +destroyable?+ methods simply
 # delegate to the +xxx_by?+ methods, passing in the currently logged in user.
@@ -28,12 +44,10 @@
 # {MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session
 # +user_from_session+} method, which looks at the Authlogic UserSession model.
 #
-# *Do not override the creatable?, readable?, editable? or destroyable?
-# methods.  Redefine the creatable_by?, readable_by?, editable_by? and
-# destroyable_by?* methods instead.
+# === Do not override the creatable?, readable?, editable? or destroyable?  methods.  Redefine the creatable_by?, readable_by?, editable_by? and destroyable_by? methods instead.
 
 module MasterMayI::ActiveRecordExtensions
-  module ClassMethods
+  module ClassMethods # :nodoc:
     # Should the current user be able to create a record? Delegates to +creatable_by?+
     def creatable?
       creatable_by?(user_from_session)
@@ -54,10 +68,10 @@ module MasterMayI::ActiveRecordExtensions
 
     # Record the +user_from_session+ as the +creator+ when creating a new record.
     #
-    # This macro also adds the +created_by?+ method.
+    # This macro also adds the +@model.created_by?(user)+ method.
     #
     # @see MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session
-    # @option opts [Symbol] :as The name of the association that holds the creating user.  Defaults to :creator
+    # @option opts [Symbol] :as (:creator) The name of the association that holds the creating user.
     def records_creating_user(opts_hash = {})
       opts = HashWithIndifferentAccess.new(opts_hash)
       association_name = (opts[:as] || :creator).to_sym
@@ -72,7 +86,6 @@ module MasterMayI::ActiveRecordExtensions
       end
 
       define_method :set_creating_user_from_session do
-        # user_from_session is from ActiveRecordSecurity
         self.send("#{association_name}=", user_from_session)
       end
 

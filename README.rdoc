@@ -1,14 +1,12 @@
 = Master May I?
 
-Clean, simple and flexible model based authorization designed to work with AuthLogic and InheritedResources.
+=== Clean, simple and flexible model based authorization designed to work with AuthLogic and InheritedResources.
 
-If these docs looks all wanky, then be sure you're viewing them on the rdoc.info site: 
+=== If these docs looks all wanky, then be sure you're viewing them on the rdoc.info site: http://rdoc.info/projects/tsaleh/master-may-i
 
-http://rdoc.info/projects/tsaleh/master-may-i
+== Overview
 
-== Executive Summary
-
-{MasterMayI Master May I} adds query methods to all your models, which can be used to determine who's allowed to do what.
+{MasterMayI Master May I} adds query methods to all your models, which can be used to determine who's allowed to do what. {MasterMayI::ActiveRecordExtensions Learn more.}
 
 * {MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by? +Model.creatable_by?(user)+} 
   and 
@@ -31,7 +29,7 @@ These are just methods (that default to always returning true), so customizing t
     end
   end
 
-If you call {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user +records_creating_user+} in your model, then the user from the Authlogic UserSession is automatically stored whenever a record is created.
+If you call {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user +records_creating_user+} in your model, then the user from the Authlogic UserSession is automatically stored whenever a record is created.  {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user Learn more.}
 
   class Note < ActiveRecord::Base
     records_creating_user
@@ -41,7 +39,7 @@ If you call {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_u
     end
   end
 
-MasterMayI also includes the {MasterMayI::ControllerExtensions#protects_restful_actions +protects_restful_actions+} controller class method, which integrates with InheritedResources in order to automatically check with the model in a set of before filters.
+MasterMayI also includes the {MasterMayI::ControllerExtensions#protects_restful_actions +protects_restful_actions+} controller class method, which integrates with InheritedResources in order to automatically check with the model in a set of before filters.  {MasterMayI::ControllerExtensions#protects_restful_actions Learn more.}
 
   class NotesController < InheritedResources::Base
     protects_restful_actions
@@ -56,27 +54,7 @@ Finally, MasterMayI adds a few utility methods to your ApplicationController:
 * {MasterMayI::ControllerExtensions::InstanceMethods#store_location +store_location+}
 * {MasterMayI::ControllerExtensions::InstanceMethods#redirect_back_or +redirect_back_or url+}
 
-== Model Level Authorization
-
-== Inherited Resources Support
-
-=== Customization
-
-==== Before Filters
-
-==== Redirects messages
-
-==== Flash messages
-
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+{MasterMayI::ControllerExtensions::InstanceMethods Learn more.}
 
 == Copyright
 

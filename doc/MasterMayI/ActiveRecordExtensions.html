@@ -60,12 +60,9 @@
   <div class="discussion">
     <p>
 I add authorization query methods to every ActiveRecord model (through
-ActiveRecord::Base).
+ActiveRecord::Base). Each model is given the following methods:
 </p>
-<p>
-Each model is given the following methods:
-</p>
-<h2>Class methods:</h2>
+<h3><tt><a title="Class methods" href="ActiveRecordExtensions/ClassMethods.html">Class methods</a></tt>:</h3>
 <ul>
 <li><tt>Model.creatable_by? user</tt>
 
@@ -74,7 +71,7 @@ Each model is given the following methods:
 
 </li>
 </ul>
-<h2>Instance methods:</h2>
+<h3><tt><a title="Instance methods" href="ActiveRecordExtensions/InstanceMethods.html">Instance methods</a></tt>:</h3>
 <ul>
 <li><tt>@model.readable_by? user</tt>
 
@@ -95,12 +92,31 @@ Each model is given the following methods:
 
 </li>
 </ul>
+<h2>Usage</h2>
+<p>
+Use these methods throughout your application to determine who can do what.
+</p>
+<pre class="code">
+  <span class='link_to_if identifier id'>link_to_if</span> <span class='@note ivar id'>@note</span><span class='dot token'>.</span><span class='editable? fid id'>editable?</span><span class='comma token'>,</span> <span class='string val'>&quot;edit note&quot;</span><span class='comma token'>,</span> <span class='edit_note_url identifier id'>edit_note_url</span>
+</pre>
 <h2>Customization</h2>
 <p>
 Each of the <tt>creatable_by?</tt>, <tt>readable_by?</tt>,
 <tt>editable_by?</tt> and <tt>destroyable_by?</tt> methods return true by
 default, and should be redefined by each model in turn.
 </p>
+<pre class="code">
+ <span class='class class kw'>class</span> <span class='Note constant id'>Note</span> <span class='lt op'>&lt;</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+   <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+     <span class='user identifier id'>user</span>
+   <span class='end end kw'>end</span>
+
+   <span class='def def kw'>def</span> <span class='editable_by? fid id'>editable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+     <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='unless unless_mod kw'>unless</span> <span class='user identifier id'>user</span>
+     <span class='user identifier id'>user</span><span class='dot token'>.</span><span class='administrator? fid id'>administrator?</span> <span class='or or kw'>or</span> <span class='created_by? fid id'>created_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+   <span class='end end kw'>end</span>
+ <span class='end end kw'>end</span>
+</pre>
 <p>
 Each of the <tt>creatable?</tt>, <tt>readable?</tt>, <tt>editable?</tt> and
 <tt>destroyable?</tt> methods simply delegate to the <tt>xxx_by?</tt>
@@ -109,11 +125,7 @@ user is returned by the
 <tt><a title="<tt>user_from_session</tt>" href="ActiveRecordExtensions/ClassMethods.html#user_from_session-instance_method"><tt>user_from_session</tt></a></tt> method, which looks at the Authlogic
 UserSession model.
 </p>
-<p>
-*Do not override the creatable?, readable?, editable? or destroyable?
-methods. Redefine the creatable_by?, readable_by?, editable_by? and
-destroyable_by?* methods instead.
-</p>
+<h3>Do not override the creatable?, readable?, editable? or destroyable? methods. Redefine the creatable_by?, readable_by?, editable_by? and destroyable_by? methods instead.</h3>
 
 
   </div>
@@ -138,7 +150,7 @@ destroyable_by?* methods instead.
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 17:33:46 2009 by 
+  Generated on Thu Dec  3 18:24:39 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

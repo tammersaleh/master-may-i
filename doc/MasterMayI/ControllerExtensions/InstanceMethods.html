@@ -59,7 +59,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>
-Foo
+Helper methods added to your controller, which are required by
+protects_restful_actions
 </p>
 
 
@@ -98,7 +99,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Returns the currently logged in user.
+
+</span>
   
 </li>
 
@@ -113,7 +117,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Returns the current UserSession.
+
+</span>
   
 </li>
 
@@ -128,7 +135,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+All before filters eventually call deny_access.
+
+</span>
   
 </li>
 
@@ -143,7 +153,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Returns whether or not there is a currently logged in user.
+
+</span>
   
 </li>
 
@@ -158,7 +171,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
   
 </li>
 
@@ -173,7 +189,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
   
 </li>
 
@@ -188,7 +207,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
   
 </li>
 
@@ -203,7 +225,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
   
 </li>
 
@@ -218,7 +243,10 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Works in conjunction with store_location.
+
+</span>
   
 </li>
 
@@ -233,7 +261,11 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+A before filter which calls deny_access if there isn&#8217;t a currently
+logged in user.
+
+</span>
   
 </li>
 
@@ -248,7 +280,11 @@ Foo
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Used by deny_access and redirect_back_or to store and later redirect to the
+currently requested location.
+
+</span>
   
 </li>
 
@@ -281,12 +317,12 @@ Foo
       <pre class="lines">
 
 
-34
-35
-36</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='controller identifier id'>controller</span><span class='rparen token'>)</span>
   <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='helper_method identifier id'>helper_method</span> <span class='symbol val'>:current_user_session</span><span class='comma token'>,</span> <span class='symbol val'>:current_user</span><span class='comma token'>,</span> <span class='symbol val'>:logged_in?</span>
@@ -304,19 +340,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the currently logged in user
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-43
-44
-45
-46</pre>
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 63</span>
 
 <span class='def def kw'>def</span> <span class='current_user identifier id'>current_user</span>
   <span class='return return kw'>return</span> <span class='@current_user ivar id'>@current_user</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='@current_user ivar id'>@current_user</span><span class='rparen token'>)</span>
@@ -335,19 +382,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the current UserSession
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
-39
-40
-41</pre>
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 57</span>
 
 <span class='def def kw'>def</span> <span class='current_user_session identifier id'>current_user_session</span>
   <span class='return return kw'>return</span> <span class='@current_user_session ivar id'>@current_user_session</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='@current_user_session ivar id'>@current_user_session</span><span class='rparen token'>)</span>
@@ -366,28 +424,86 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+All before filters eventually call deny_access. deny_access stores the
+current location in the session, sets the flash and redirects the user.
+</p>
+<p>
+The flash, and where the user is redirected to are chosen based on whether
+there is a logged in user, and are customizeable by overriding the
+permission_denied_flash_for_user permission_denied_redirect_for_user
+permission_denied_flash_for_visitor and
+permission_denied_redirect_for_visitor methods
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+    
+    
+    <h3>Options Hash (<tt>opts</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:flash</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>permission_denied_flash_for_visitor or permission_denied_flash_for_user</tt>
+            
+          </span>
+          &mdash;
+Flash message displayed after redirect.
+
+
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:redirect_to</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>permission_denied_redirect_for_visitor or permission_denied_redirect_for_user</tt>
+            
+          </span>
+          &mdash;
+URL the user is redirected to.
+
+
+        </tr>
+      
+    </ul>
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68</pre>
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 93</span>
 
 <span class='def def kw'>def</span> <span class='deny_access identifier id'>deny_access</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='logged_in? fid id'>logged_in?</span>
@@ -415,18 +531,29 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns whether or not there is a currently logged in user
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 69</span>
 
 <span class='def def kw'>def</span> <span class='logged_in? fid id'>logged_in?</span>
   <span class='notop op'>!</span><span class='notop op'>!</span> <span class='current_user identifier id'>current_user</span>
@@ -444,18 +571,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the flash message displayed to
+users who are logged in, but not allowed to access the resource.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-70
-71
-72</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='permission_denied_flash_for_user identifier id'>permission_denied_flash_for_user</span>
   <span class='string val'>&quot;You don't have permission to access this page.&quot;</span>
@@ -473,18 +612,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the flash message displayed to
+visitors who are not yet logged in.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 115</span>
 
 <span class='def def kw'>def</span> <span class='permission_denied_flash_for_visitor identifier id'>permission_denied_flash_for_visitor</span>
   <span class='string val'>&quot;Please login.&quot;</span>
@@ -502,18 +653,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the URL to which users who are
+logged in, but not allowed to access the resource are redirected.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-78
-79
-80</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='permission_denied_redirect_for_user identifier id'>permission_denied_redirect_for_user</span>
   <span class='root_url identifier id'>root_url</span>
@@ -531,18 +694,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the URL to which visitors who
+are not logged in are redirected.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 127</span>
 
 <span class='def def kw'>def</span> <span class='permission_denied_redirect_for_visitor identifier id'>permission_denied_redirect_for_visitor</span>
   <span class='login_url identifier id'>login_url</span>
@@ -560,19 +735,32 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Works in conjunction with store_location. If there is a :return_to set in
+the session, redirect the user there. Otherwise, redirect the user to the
+given url.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-90
-91
-92
-93</pre>
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 140</span>
 
 <span class='def def kw'>def</span> <span class='redirect_back_or identifier id'>redirect_back_or</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='redirect_to identifier id'>redirect_to</span><span class='lparen token'>(</span><span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='url identifier id'>url</span><span class='rparen token'>)</span>
@@ -591,18 +779,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A before filter which calls deny_access if there isn&#8217;t a currently
+logged in user
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-52
-53
-54</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 74</span>
 
 <span class='def def kw'>def</span> <span class='require_user identifier id'>require_user</span>
   <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='current_user identifier id'>current_user</span>
@@ -620,18 +820,30 @@ Foo
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access and redirect_back_or to store and later redirect to the
+currently requested location
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-86
-87
-88</pre>
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 133</span>
 
 <span class='def def kw'>def</span> <span class='store_location identifier id'>store_location</span>
   <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='request_uri identifier id'>request_uri</span>
@@ -647,7 +859,7 @@ Foo
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 17:33:46 2009 by 
+  Generated on Thu Dec  3 18:24:39 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

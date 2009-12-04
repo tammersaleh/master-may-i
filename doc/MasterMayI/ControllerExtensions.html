@@ -90,7 +90,11 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Adds before filters to your InheritedResources controller that protect
+access to the resource.
+
+</span>
   
 </li>
 
@@ -117,18 +121,54 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Adds before filters to your InheritedResources controller that protect
+access to the resource.
+</p>
+<p>
+Only the <tt>new</tt>, <tt>create</tt>, <tt>show</tt>, <tt>edit</tt>,
+<tt>update</tt>, and <tt>destroy</tt> actions are covered. Note that this
+does not protect the <tt>index</tt> action, or attempt to limit the records
+that are returned by <tt>find(:all)</tt>.
+</p>
+<p>
+The before filters make use of the
+<tt><a title="deny_acces" href="ControllerExtensions/InstanceMethods.html#deny_access-instance_method">deny_acces</a></tt>
+helper to set the flash, save the intended location, and redirect the user.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a title="MasterMayI::ControllerExtensions::Filters#ensure_can_create_record" href="ControllerExtensions/Filters.html#ensure_can_create_record-instance_method">MasterMayI::ControllerExtensions::Filters#ensure_can_create_record</a></li>
+    
+      <li><a title="MasterMayI::ControllerExtensions::Filters#ensure_can_show_record" href="ControllerExtensions/Filters.html#ensure_can_show_record-instance_method">MasterMayI::ControllerExtensions::Filters#ensure_can_show_record</a></li>
+    
+      <li><a title="MasterMayI::ControllerExtensions::Filters#ensure_can_edit_record" href="ControllerExtensions/Filters.html#ensure_can_edit_record-instance_method">MasterMayI::ControllerExtensions::Filters#ensure_can_edit_record</a></li>
+    
+      <li><a title="MasterMayI::ControllerExtensions::Filters#ensure_can_destroy_record" href="ControllerExtensions/Filters.html#ensure_can_destroy_record-instance_method">MasterMayI::ControllerExtensions::Filters#ensure_can_destroy_record</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2
-3
-4</pre>
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 16</span>
 
 <span class='def def kw'>def</span> <span class='protects_restful_actions identifier id'>protects_restful_actions</span>
   <span class='include identifier id'>include</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span><span class='colon2 op'>::</span><span class='Filters constant id'>Filters</span>
@@ -144,7 +184,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 17:33:46 2009 by 
+  Generated on Thu Dec  3 18:24:39 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>
