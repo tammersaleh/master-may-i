@@ -48,23 +48,40 @@
     
   
     
-      <dt class="r1">Includes:</dt>
-      <dd class="r1"><a href="ControllerExtensions/Filters.html" title="MasterMayI::ControllerExtensions::Filters">MasterMayI::ControllerExtensions::Filters</a></dd>
-      
-    
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/master_may_i/controller_extensions.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/master_may_i/controller_extensions.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
-<h2>Defined Under Namespace</h2>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Helper methods you probably want in your controller.
+</p>
+<p>
+Including this in your application controller gives you access to these
+helpers, and also to the
+<tt><a href="ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="<tt>protects_restful_actions</tt>"><tt>protects_restful_actions</tt></a></tt> method.
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='ApplicationController constant id'>ApplicationController</span> <span class='lt op'>&lt;</span> <span class='ActionController constant id'>ActionController</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='include identifier id'>include</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span>
+    <span class='dot3 op'>...</span>
+</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <a href="ControllerExtensions/Filters.html" title="Filters">Filters</a>, <a href="ControllerExtensions/InstanceMethods.html" title="InstanceMethods">InstanceMethods</a>
+      <strong class="modules">Modules:</strong> <a href="ControllerExtensions/ClassMethods.html" title="ClassMethods">ClassMethods</a>, <a href="ControllerExtensions/Filters.html" title="Filters">Filters</a>
     
    
     
@@ -72,16 +89,27 @@
 </p>
 
 
-  
-  
-  
-  
 
   <h2>Method Summary</h2>
   <ul class="summary">
     
       <li class="public ">
-  <span class="summary_signature"><a href="#protects_restful_actions-instance_method" title="#protects_restful_actions (instance method)">- (Object) <strong>protects_restful_actions</strong> </a>
+  <span class="summary_signature"><a href="#included-class_method" title="included (class method)">+ (Object) <strong>included</strong>(controller) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#current_user-instance_method" title="#current_user (instance method)">- (Object) <strong>current_user</strong> </a>
   
   </span>
   
@@ -91,8 +119,189 @@
 
   
     <span class="summary_desc">
-Adds before filters to your InheritedResources controller that protect
-access to the resource.
+Returns the currently logged in user.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#current_user_session-instance_method" title="#current_user_session (instance method)">- (Object) <strong>current_user_session</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the current UserSession.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#deny_access-instance_method" title="#deny_access (instance method)">- (Object) <strong>deny_access</strong>(opts = {}) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+All before filters eventually call deny_access.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#logged_in%3F-instance_method" title="#logged_in? (instance method)">- (Object) <strong>logged_in?</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns whether or not there is a currently logged in user.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_flash_for_user-instance_method" title="#permission_denied_flash_for_user (instance method)">- (Object) <strong>permission_denied_flash_for_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_flash_for_visitor-instance_method" title="#permission_denied_flash_for_visitor (instance method)">- (Object) <strong>permission_denied_flash_for_visitor</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_redirect_for_user-instance_method" title="#permission_denied_redirect_for_user (instance method)">- (Object) <strong>permission_denied_redirect_for_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#permission_denied_redirect_for_visitor-instance_method" title="#permission_denied_redirect_for_visitor (instance method)">- (Object) <strong>permission_denied_redirect_for_visitor</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Used by deny_access.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#redirect_back_or-instance_method" title="#redirect_back_or (instance method)">- (Object) <strong>redirect_back_or</strong>(url) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Works in conjunction with store_location.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#require_user-instance_method" title="#require_user (instance method)">- (Object) <strong>require_user</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+A before filter which calls deny_access if there isn&#8217;t a currently
+logged in user.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#store_location-instance_method" title="#store_location (instance method)">- (Object) <strong>store_location</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Used by deny_access and redirect_back_or to store and later redirect to the
+currently requested location.
 
 </span>
   
@@ -102,41 +311,60 @@ access to the resource.
   </ul>
 
 
-  
-  
-  
-  
-  
-  <h3 class="inherited">Methods included from <a href="ControllerExtensions/Filters.html" title="MasterMayI::ControllerExtensions::Filters">MasterMayI::ControllerExtensions::Filters</a></h3>
-  <p class="inherited"><a href="ControllerExtensions/Filters.html#ensure_can_create_record-instance_method" title="#ensure_can_create_record">#ensure_can_create_record</a>, <a href="ControllerExtensions/Filters.html#ensure_can_destroy_record-instance_method" title="#ensure_can_destroy_record">#ensure_can_destroy_record</a>, <a href="ControllerExtensions/Filters.html#ensure_can_edit_record-instance_method" title="#ensure_can_edit_record">#ensure_can_edit_record</a>, <a href="ControllerExtensions/Filters.html#ensure_can_show_record-instance_method" title="#ensure_can_show_record">#ensure_can_show_record</a>, <a href="ControllerExtensions/Filters.html#included-class_method" title="included">included</a></p>
-
 
   <div id="method_details">
     <h2>Method Details</h2>
     
       <div class="method_details first">
-  <p class="signature first" id="protects_restful_actions-instance_method">
+  <p class="signature first" id="included-class_method">
   
-    - (<tt>Object</tt>) <strong>protects_restful_actions</strong> 
+    + (<tt>Object</tt>) <strong>included</strong>(controller) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 13</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='controller identifier id'>controller</span><span class='rparen token'>)</span>
+  <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='extend identifier id'>extend</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span><span class='colon2 op'>::</span><span class='ClassMethods constant id'>ClassMethods</span>
+  <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='helper_method identifier id'>helper_method</span> <span class='symbol val'>:current_user_session</span><span class='comma token'>,</span> <span class='symbol val'>:current_user</span><span class='comma token'>,</span> <span class='symbol val'>:logged_in?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="current_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>current_user</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Adds before filters to your InheritedResources controller that protect
-access to the resource.
-</p>
-<p>
-Only the <tt>new</tt>, <tt>create</tt>, <tt>show</tt>, <tt>edit</tt>,
-<tt>update</tt>, and <tt>destroy</tt> actions are covered. Note that this
-does not protect the <tt>index</tt> action, or attempt to limit the records
-that are returned by <tt>find(:all)</tt>.
-</p>
-<p>
-The before filters make use of the
-<tt><a href="ControllerExtensions/InstanceMethods.html#deny_access-instance_method" title="deny_acces">deny_acces</a></tt>
-helper to set the flash, save the intended location, and redirect the user.
+Returns the currently logged in user
 </p>
 
 
@@ -144,16 +372,147 @@ helper to set the flash, save the intended location, and redirect the user.
 </div>
 <div class="tags">
   
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 25</span>
+
+<span class='def def kw'>def</span> <span class='current_user identifier id'>current_user</span>
+  <span class='return return kw'>return</span> <span class='@current_user ivar id'>@current_user</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='@current_user ivar id'>@current_user</span><span class='rparen token'>)</span>
+  <span class='@current_user ivar id'>@current_user</span> <span class='assign token'>=</span> <span class='current_user_session identifier id'>current_user_session</span> <span class='andop op'>&amp;&amp;</span> <span class='current_user_session identifier id'>current_user_session</span><span class='dot token'>.</span><span class='user identifier id'>user</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="current_user_session-instance_method">
+  
+    - (<tt>Object</tt>) <strong>current_user_session</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the current UserSession
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 19</span>
+
+<span class='def def kw'>def</span> <span class='current_user_session identifier id'>current_user_session</span>
+  <span class='return return kw'>return</span> <span class='@current_user_session ivar id'>@current_user_session</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='@current_user_session ivar id'>@current_user_session</span><span class='rparen token'>)</span>
+  <span class='@current_user_session ivar id'>@current_user_session</span> <span class='assign token'>=</span> <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="deny_access-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deny_access</strong>(opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+All before filters eventually call deny_access. deny_access stores the
+current location in the session, sets the flash and redirects the user.
+</p>
+<p>
+The flash, and where the user is redirected to are chosen based on whether
+there is a logged in user, and are customizeable by overriding the
+permission_denied_flash_for_user permission_denied_redirect_for_user
+permission_denied_flash_for_visitor and
+permission_denied_redirect_for_visitor methods
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+    
+    
+    <h3>Options Hash (<tt>opts</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:flash</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>permission_denied_flash_for_visitor or permission_denied_flash_for_user</tt>
+            
+          </span>
+          &mdash;
+Flash message displayed after redirect.
+
+
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:redirect_to</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>permission_denied_redirect_for_visitor or permission_denied_redirect_for_user</tt>
+            
+          </span>
+          &mdash;
+URL the user is redirected to.
+
+
+        </tr>
+      
+    </ul>
+  
+
   <h3>See Also:</h3>
   <ul class="see">
     
-      <li><a href="ControllerExtensions/Filters.html#ensure_can_create_record-instance_method" title="MasterMayI::ControllerExtensions::Filters#ensure_can_create_record">MasterMayI::ControllerExtensions::Filters#ensure_can_create_record</a></li>
+      <li><a href="#permission_denied_redirect_for_user-instance_method" title="permission_denied_redirect_for_user">permission_denied_redirect_for_user</a></li>
     
-      <li><a href="ControllerExtensions/Filters.html#ensure_can_show_record-instance_method" title="MasterMayI::ControllerExtensions::Filters#ensure_can_show_record">MasterMayI::ControllerExtensions::Filters#ensure_can_show_record</a></li>
+      <li><a href="#permission_denied_flash_for_user-instance_method" title="permission_denied_flash_for_user">permission_denied_flash_for_user</a></li>
     
-      <li><a href="ControllerExtensions/Filters.html#ensure_can_edit_record-instance_method" title="MasterMayI::ControllerExtensions::Filters#ensure_can_edit_record">MasterMayI::ControllerExtensions::Filters#ensure_can_edit_record</a></li>
+      <li><a href="#permission_denied_redirect_for_visitor-instance_method" title="permission_denied_redirect_for_visitor">permission_denied_redirect_for_visitor</a></li>
     
-      <li><a href="ControllerExtensions/Filters.html#ensure_can_destroy_record-instance_method" title="MasterMayI::ControllerExtensions::Filters#ensure_can_destroy_record">MasterMayI::ControllerExtensions::Filters#ensure_can_destroy_record</a></li>
+      <li><a href="#permission_denied_flash_for_visitor-instance_method" title="permission_denied_flash_for_visitor">permission_denied_flash_for_visitor</a></li>
     
   </ul>
 
@@ -163,15 +522,365 @@ helper to set the flash, save the intended location, and redirect the user.
       <pre class="lines">
 
 
-16
-17
-18</pre>
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 64</span>
 
-<span class='def def kw'>def</span> <span class='protects_restful_actions identifier id'>protects_restful_actions</span>
-  <span class='include identifier id'>include</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span><span class='colon2 op'>::</span><span class='Filters constant id'>Filters</span>
+<span class='def def kw'>def</span> <span class='deny_access identifier id'>deny_access</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='logged_in? fid id'>logged_in?</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:flash</span><span class='rbrack token'>]</span>       <span class='opasgn op'>||=</span> <span class='permission_denied_flash_for_user identifier id'>permission_denied_flash_for_user</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_to</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='permission_denied_redirect_for_user identifier id'>permission_denied_redirect_for_user</span>
+  <span class='else else kw'>else</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:flash</span><span class='rbrack token'>]</span>       <span class='opasgn op'>||=</span> <span class='permission_denied_flash_for_visitor identifier id'>permission_denied_flash_for_visitor</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_to</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='permission_denied_redirect_for_visitor identifier id'>permission_denied_redirect_for_visitor</span>
+  <span class='end end kw'>end</span>
+
+  <span class='store_location identifier id'>store_location</span>
+  <span class='flash identifier id'>flash</span><span class='lbrack token'>[</span><span class='symbol val'>:notice</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:flash</span><span class='rbrack token'>]</span>
+  <span class='redirect_to identifier id'>redirect_to</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_to</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="logged_in?-instance_method">
+  
+    - (<tt>Object</tt>) <strong>logged_in?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns whether or not there is a currently logged in user
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 31</span>
+
+<span class='def def kw'>def</span> <span class='logged_in? fid id'>logged_in?</span>
+  <span class='notop op'>!</span><span class='notop op'>!</span> <span class='current_user identifier id'>current_user</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_flash_for_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_flash_for_user</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the flash message displayed to
+users who are logged in, but not allowed to access the resource.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 80</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_flash_for_user identifier id'>permission_denied_flash_for_user</span>
+  <span class='string val'>&quot;You don't have permission to access this page.&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_flash_for_visitor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_flash_for_visitor</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the flash message displayed to
+visitors who are not yet logged in.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 86</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_flash_for_visitor identifier id'>permission_denied_flash_for_visitor</span>
+  <span class='string val'>&quot;Please login.&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_redirect_for_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_redirect_for_user</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the URL to which users who are
+logged in, but not allowed to access the resource are redirected.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 92</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_redirect_for_user identifier id'>permission_denied_redirect_for_user</span>
+  <span class='root_url identifier id'>root_url</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="permission_denied_redirect_for_visitor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>permission_denied_redirect_for_visitor</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access. Override to customize the URL to which visitors who
+are not logged in are redirected.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 98</span>
+
+<span class='def def kw'>def</span> <span class='permission_denied_redirect_for_visitor identifier id'>permission_denied_redirect_for_visitor</span>
+  <span class='login_url identifier id'>login_url</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="redirect_back_or-instance_method">
+  
+    - (<tt>Object</tt>) <strong>redirect_back_or</strong>(url) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Works in conjunction with store_location. If there is a :return_to set in
+the session, redirect the user there. Otherwise, redirect the user to the
+given url.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 111</span>
+
+<span class='def def kw'>def</span> <span class='redirect_back_or identifier id'>redirect_back_or</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='redirect_to identifier id'>redirect_to</span><span class='lparen token'>(</span><span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="require_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>require_user</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A before filter which calls deny_access if there isn&#8217;t a currently
+logged in user
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 36</span>
+
+<span class='def def kw'>def</span> <span class='require_user identifier id'>require_user</span>
+  <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='current_user identifier id'>current_user</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="store_location-instance_method">
+  
+    - (<tt>Object</tt>) <strong>store_location</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Used by deny_access and redirect_back_or to store and later redirect to the
+currently requested location
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 104</span>
+
+<span class='def def kw'>def</span> <span class='store_location identifier id'>store_location</span>
+  <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:return_to</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='request_uri identifier id'>request_uri</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -184,7 +893,7 @@ helper to set the flash, save the intended location, and redirect the user.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 09:07:16 2009 by 
+  Generated on Fri Dec  4 10:12:20 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

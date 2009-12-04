@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{master_may_i}
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tammer Saleh"]
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
      "doc/MasterMayI/ActiveRecordExtensions/ClassMethods.html",
      "doc/MasterMayI/ActiveRecordExtensions/InstanceMethods.html",
      "doc/MasterMayI/ControllerExtensions.html",
+     "doc/MasterMayI/ControllerExtensions/ClassMethods.html",
      "doc/MasterMayI/ControllerExtensions/Filters.html",
      "doc/MasterMayI/ControllerExtensions/InstanceMethods.html",
      "doc/MasterMayI/InheritedResourcesExtensions.html",

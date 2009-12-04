@@ -89,43 +89,50 @@ Authlogic UserSession is automatically stored whenever a record is created.
   <span class='end end kw'>end</span>
 </pre>
 <p>
-MasterMayI also includes the
-<tt><a href="MasterMayI/ControllerExtensions.html#protects_restful_actions-instance_method" title="<tt>protects_restful_actions</tt>"><tt>protects_restful_actions</tt></a></tt> controller class method, which
+If you include <tt><a href="MasterMayI/ControllerExtensions.html" title="MasterMayI::ControllerExtensions">MasterMayI::ControllerExtensions</a></tt> in your
+ApplicationController, MasterMayI adds a few utility methods to your
+ApplicationController:
+</p>
+<ul>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#current_user-instance_method" title="<tt>current_user</tt>"><tt>current_user</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#logged_in%3F-instance_method" title="<tt>logged_in?</tt>"><tt>logged_in?</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#require_user-instance_method" title="<tt>require_user</tt>"><tt>require_user</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#deny_access-instance_method" title="<tt>deny_access</tt>"><tt>deny_access</tt></a></tt>
+
+</li>
+<li><tt><a href="MasterMayI/ControllerExtensions.html#store_location-instance_method" title="<tt>store_location</tt>"><tt>store_location</tt></a></tt>
+
+</li>
+<li>{MasterMayI::ControllerExtensions#redirect_back_or <tt>redirect_back_or
+url</tt>}
+
+</li>
+</ul>
+<p>
+MasterMayI will also include the
+<tt><a href="MasterMayI/ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="<tt>protects_restful_actions</tt>"><tt>protects_restful_actions</tt></a></tt> controller class method, which
 integrates with InheritedResources in order to automatically check with the
 model in a set of before filters.
-<tt><a href="MasterMayI/ControllerExtensions.html#protects_restful_actions-instance_method" title="Learn more.">Learn more.</a></tt>
+<tt><a href="MasterMayI/ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="Learn more.">Learn more.</a></tt>
 </p>
 <pre class="code">
+  <span class='class class kw'>class</span> <span class='ApplicationController constant id'>ApplicationController</span> <span class='lt op'>&lt;</span> <span class='ActionController constant id'>ActionController</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
+    <span class='include identifier id'>include</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span>
+    <span class='dot3 op'>...</span>
+  <span class='end end kw'>end</span>
+
   <span class='class class kw'>class</span> <span class='NotesController constant id'>NotesController</span> <span class='lt op'>&lt;</span> <span class='InheritedResources constant id'>InheritedResources</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
     <span class='protects_restful_actions identifier id'>protects_restful_actions</span>
   <span class='end end kw'>end</span>
 </pre>
 <p>
-Finally, MasterMayI adds a few utility methods to your
-ApplicationController:
-</p>
-<ul>
-<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#current_user-instance_method" title="<tt>current_user</tt>"><tt>current_user</tt></a></tt>
-
-</li>
-<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#logged_in%3F-instance_method" title="<tt>logged_in?</tt>"><tt>logged_in?</tt></a></tt>
-
-</li>
-<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#require_user-instance_method" title="<tt>require_user</tt>"><tt>require_user</tt></a></tt>
-
-</li>
-<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#deny_access-instance_method" title="<tt>deny_access</tt>"><tt>deny_access</tt></a></tt>
-
-</li>
-<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#store_location-instance_method" title="<tt>store_location</tt>"><tt>store_location</tt></a></tt>
-
-</li>
-<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#redirect_back_or-instance_method" title="<tt>redirect_back_or url</tt>"><tt>redirect_back_or url</tt></a></tt>
-
-</li>
-</ul>
-<p>
-<tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html" title="Learn more.">Learn more.</a></tt>
+<tt><a href="MasterMayI/ControllerExtensions.html" title="Learn more.">Learn more.</a></tt>
 </p>
 <h2>Testing</h2>
 <p>
@@ -189,7 +196,7 @@ Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
 </div></div>
     
     <div id="footer">
-  Generated on Fri Dec  4 09:07:15 2009 by 
+  Generated on Fri Dec  4 10:12:19 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

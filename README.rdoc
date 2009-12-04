@@ -47,27 +47,32 @@ more.}
     end
   end
 
-MasterMayI also includes the
-{MasterMayI::ControllerExtensions#protects_restful_actions
+If you include {MasterMayI::ControllerExtensions} in your ApplicationController, MasterMayI adds a few utility methods to your ApplicationController:
+
+* {MasterMayI::ControllerExtensions#current_user +current_user+}
+* {MasterMayI::ControllerExtensions#logged_in? +logged_in?+}
+* {MasterMayI::ControllerExtensions#require_user +require_user+}
+* {MasterMayI::ControllerExtensions#deny_access +deny_access+}
+* {MasterMayI::ControllerExtensions#store_location +store_location+}
+* {MasterMayI::ControllerExtensions#redirect_back_or +redirect_back_or url+}
+
+MasterMayI will also include the
+{MasterMayI::ControllerExtensions::ClassMethods#protects_restful_actions
 +protects_restful_actions+} controller class method, which integrates with
 InheritedResources in order to automatically check with the model in a set of
-before filters.  {MasterMayI::ControllerExtensions#protects_restful_actions
+before filters.  {MasterMayI::ControllerExtensions::ClassMethods#protects_restful_actions
 Learn more.}
+
+  class ApplicationController < ActionController::Base
+    include MasterMayI::ControllerExtensions
+    ...
+  end
 
   class NotesController < InheritedResources::Base
     protects_restful_actions
   end
 
-Finally, MasterMayI adds a few utility methods to your ApplicationController:
-
-* {MasterMayI::ControllerExtensions::InstanceMethods#current_user +current_user+}
-* {MasterMayI::ControllerExtensions::InstanceMethods#logged_in? +logged_in?+}
-* {MasterMayI::ControllerExtensions::InstanceMethods#require_user +require_user+}
-* {MasterMayI::ControllerExtensions::InstanceMethods#deny_access +deny_access+}
-* {MasterMayI::ControllerExtensions::InstanceMethods#store_location +store_location+}
-* {MasterMayI::ControllerExtensions::InstanceMethods#redirect_back_or +redirect_back_or url+}
-
-{MasterMayI::ControllerExtensions::InstanceMethods Learn more.}
+{MasterMayI::ControllerExtensions Learn more.}
 
 == Testing
 

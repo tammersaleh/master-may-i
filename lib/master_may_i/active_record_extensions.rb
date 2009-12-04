@@ -69,7 +69,7 @@ module MasterMayI::ActiveRecordExtensions
     #
     # @param user [User, nil] Either a user record, or nil for visitors.
     #
-    # @see ActiveSupport::TestCase.should_be_creatable_by
+    # @see ActiveSupport::TestCase.should_be_creatable_by should_be_creatable_by
     def creatable_by?(user)
       true
     end
@@ -87,8 +87,8 @@ module MasterMayI::ActiveRecordExtensions
     #
     # @option opts [Symbol] :as (:creator) The name of the association that holds the creating user.
     #
-    # @see MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session
-    # @see ActiveSupport::TestCase.should_record_creating_user
+    # @see MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session user_from_session
+    # @see ActiveSupport::TestCase.should_record_creating_user should_record_creating_user
     def records_creating_user(opts_hash = {})
       opts = HashWithIndifferentAccess.new(opts_hash)
       association_name = (opts[:as] || :creator).to_sym
@@ -124,7 +124,7 @@ module MasterMayI::ActiveRecordExtensions
     #
     # @param user [User, nil] Either a user record, or nil for visitors.
     #
-    # @see ActiveSupport::TestCase.should_be_readable_by
+    # @see ActiveSupport::TestCase.should_be_readable_by should_be_readable_by
     def readable_by?(user)
       true
     end
@@ -139,7 +139,7 @@ module MasterMayI::ActiveRecordExtensions
     #
     # @param user [User, nil] Either a user record, or nil for visitors.
     #
-    # @see ActiveSupport::TestCase.should_be_editable_by
+    # @see ActiveSupport::TestCase.should_be_editable_by should_be_editable_by
     def editable_by?(user)
       true
     end
@@ -154,13 +154,13 @@ module MasterMayI::ActiveRecordExtensions
     #
     # @param user [User, nil] Either a user record, or nil for visitors.
     #
-    # @see ActiveSupport::TestCase.should_be_destroyable_by
+    # @see ActiveSupport::TestCase.should_be_destroyable_by should_be_destroyable_by
     def destroyable_by?(user)
       true
     end
 
     # Returns the currently logged in user via the Authlogic UserSession class.
-    # @see MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session
+    # @see MasterMayI::ActiveRecordExtensions::ClassMethods#user_from_session user_from_session
     def user_from_session
       self.class.user_from_session
     end
