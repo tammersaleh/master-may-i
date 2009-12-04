@@ -63,14 +63,49 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <h2>Unit test Shoulda macros</h2>
+<p>
+These macros are very useful. Use them.
+</p>
+<pre class="code">
+  <span class='class class kw'>class</span> <span class='NoteTest constant id'>NoteTest</span> <span class='lt op'>&lt;</span> <span class='ActiveSupport constant id'>ActiveSupport</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
+    <span class='setup identifier id'>setup</span> <span class='symbol val'>:activate_authlogic</span>
 
+    <span class='should_record_creating_user identifier id'>should_record_creating_user</span> <span class='symbol val'>:as</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;user&quot;</span>
+
+    <span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-create&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-create&quot;</span><span class='rparen token'>)</span>  <span class='rbrace token'>}</span>
+    <span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span>         <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+
+    <span class='context identifier id'>context</span> <span class='string val'>&quot;a note&quot;</span> <span class='do do kw'>do</span>
+      <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:note</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+      <span class='subject identifier id'>subject</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='rbrace token'>}</span>
+
+      <span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-read&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-read&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
+      <span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-edit&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-edit&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
+      <span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+
+      <span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span>   <span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span>   <span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
 
 
   <h2>Method Summary</h2>
   <ul class="summary">
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_be_creatable_by (class method)" href="#should_be_creatable_by-class_method">+ (Object) <strong>should_be_creatable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_be_creatable_by-class_method" title="should_be_creatable_by (class method)">+ (Object) <strong>should_be_creatable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -79,13 +114,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is <tt>creatable_by</tt> the user returned by
+the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_be_destroyable_by (class method)" href="#should_be_destroyable_by-class_method">+ (Object) <strong>should_be_destroyable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_be_destroyable_by-class_method" title="should_be_destroyable_by (class method)">+ (Object) <strong>should_be_destroyable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -94,13 +133,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is <tt>destroyable_by</tt> the user returned
+by the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_be_editable_by (class method)" href="#should_be_editable_by-class_method">+ (Object) <strong>should_be_editable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_be_editable_by-class_method" title="should_be_editable_by (class method)">+ (Object) <strong>should_be_editable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -109,13 +152,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is <tt>editable_by</tt> the user returned by
+the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_be_readable_by (class method)" href="#should_be_readable_by-class_method">+ (Object) <strong>should_be_readable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_be_readable_by-class_method" title="should_be_readable_by (class method)">+ (Object) <strong>should_be_readable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -124,13 +171,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is <tt>readable_by</tt> the user returned by
+the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_not_be_creatable_by (class method)" href="#should_not_be_creatable_by-class_method">+ (Object) <strong>should_not_be_creatable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_not_be_creatable_by-class_method" title="should_not_be_creatable_by (class method)">+ (Object) <strong>should_not_be_creatable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -139,13 +190,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is not <tt>creatable_by</tt> the user
+returned by the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_not_be_destroyable_by (class method)" href="#should_not_be_destroyable_by-class_method">+ (Object) <strong>should_not_be_destroyable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_not_be_destroyable_by-class_method" title="should_not_be_destroyable_by (class method)">+ (Object) <strong>should_not_be_destroyable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -154,13 +209,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is not <tt>destroyable_by</tt> the user
+returned by the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_not_be_editable_by (class method)" href="#should_not_be_editable_by-class_method">+ (Object) <strong>should_not_be_editable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_not_be_editable_by-class_method" title="should_not_be_editable_by (class method)">+ (Object) <strong>should_not_be_editable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -169,13 +228,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is not <tt>editable_by</tt> the user returned
+by the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_not_be_readable_by (class method)" href="#should_not_be_readable_by-class_method">+ (Object) <strong>should_not_be_readable_by</strong>(test_name, &amp;user_block) </a>
+  <span class="summary_signature"><a href="#should_not_be_readable_by-class_method" title="should_not_be_readable_by (class method)">+ (Object) <strong>should_not_be_readable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
   
@@ -184,13 +247,17 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is not <tt>readable_by</tt> the user returned
+by the given block.
+
+</span>
   
 </li>
 
     
       <li class="public ">
-  <span class="summary_signature"><a title="should_record_creating_user (class method)" href="#should_record_creating_user-class_method">+ (Object) <strong>should_record_creating_user</strong>(opts = {}) </a>
+  <span class="summary_signature"><a href="#should_record_creating_user-class_method" title="should_record_creating_user (class method)">+ (Object) <strong>should_record_creating_user</strong>(opts = {}) </a>
   
   </span>
   
@@ -199,7 +266,11 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Ensures that newly created records correctly record the user from the
+Authlogic session.
+
+</span>
   
 </li>
 
@@ -218,20 +289,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is <tt>creatable_by</tt> the user returned by
+the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by?">MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-2
-3
-4
-5
-6</pre>
+34
+35
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -251,20 +381,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is <tt>destroyable_by</tt> the user returned
+by the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::InstanceMethods#destroyable_by?">MasterMayI::ActiveRecordExtensions::InstanceMethods#destroyable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
-39
-40
-41
-42</pre>
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 106</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -284,20 +473,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is <tt>editable_by</tt> the user returned by
+the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::InstanceMethods#editable_by?">MasterMayI::ActiveRecordExtensions::InstanceMethods#editable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-26
-27
-28
-29
-30</pre>
+82
+83
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 82</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -317,20 +565,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is <tt>readable_by</tt> the user returned by
+the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::InstanceMethods#readable_by?">MasterMayI::ActiveRecordExtensions::InstanceMethods#readable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-14
-15
-16
-17
-18</pre>
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 58</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -350,20 +657,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is not <tt>creatable_by</tt> the user
+returned by the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by?">MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-8
-9
-10
-11
-12</pre>
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 46</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -383,20 +749,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is not <tt>destroyable_by</tt> the user
+returned by the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::InstanceMethods#destroyable_by?">MasterMayI::ActiveRecordExtensions::InstanceMethods#destroyable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-44
-45
-46
-47
-48</pre>
+118
+119
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 118</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -416,20 +841,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is not <tt>editable_by</tt> the user returned
+by the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::InstanceMethods#editable_by?">MasterMayI::ActiveRecordExtensions::InstanceMethods#editable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-32
-33
-34
-35
-36</pre>
+94
+95
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 94</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -449,20 +933,79 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is not <tt>readable_by</tt> the user returned
+by the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable_by%3F-instance_method" title="MasterMayI::ActiveRecordExtensions::InstanceMethods#readable_by?">MasterMayI::ActiveRecordExtensions::InstanceMethods#readable_by?</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-20
-21
-22
-23
-24</pre>
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 70</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -482,60 +1025,103 @@
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that newly created records correctly record the user from the
+Authlogic session.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+    
+    
+    <h3>Options Hash (<tt>opts</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="name">:as</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:creator</tt>
+            
+          </span>
+          &mdash;
+The name of the association that holds the creating user.
+
+
+        </tr>
+      
+    </ul>
+  
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method" title="MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user">MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94</pre>
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 128</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_record_creating_user identifier id'>should_record_creating_user</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='association_name identifier id'>association_name</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:as</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:creator</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
@@ -593,7 +1179,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Dec  3 18:24:40 2009 by 
+  Generated on Fri Dec  4 08:03:19 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

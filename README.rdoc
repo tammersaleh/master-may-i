@@ -56,6 +56,20 @@ Finally, MasterMayI adds a few utility methods to your ApplicationController:
 
 {MasterMayI::ControllerExtensions::InstanceMethods Learn more.}
 
+== Testing
+
+Master May I comes with a strong set of Shoulda macros for both your {ActiveSupport::TestCase unit tests} and your {ActionController::TestCase functional tests}.  
+
+== Installation
+
+Master May I is hosted on gemcutter, so installation is as easy as:
+
+  sudo gem install master_may_i
+
+It relies heavily on Authlogic, and uses the +resource+ and +resource_class+ methods from InheritedResources.  The before filters expect there to be the following named route:
+
+  map.login "/login", :controller => :user_session, :action => :new
+
 == Copyright
 
 Copyright (c) 2009 Tammer Saleh. See LICENSE for details.

@@ -19,7 +19,7 @@
     <div id="header">
       <div id="menu">
   
-    <a title="Index" href="_index.html">Index</a> &raquo; 
+    <a href="_index.html" title="Index">Index</a> &raquo; 
     <span class="title">File: README</span>
   
 </div>
@@ -38,27 +38,27 @@
     <div id="content"><div id='filecontents'><h1>Master May I?</h1>
 <h3>Clean, simple and flexible model based authorization designed to work with AuthLogic and InheritedResources.</h3>
 <h3>If these docs looks all wanky, then be sure you&#8217;re viewing them on the rdoc.info site: http://rdoc.info/projects/tsaleh/master-may-i</h3>
-<h2>Executive Summary</h2>
+<h2>Overview</h2>
 <p>
-<tt><a title="Master May I" href="MasterMayI.html">Master May I</a></tt> adds query methods to all your models, which can
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> adds query methods to all your models, which can
 be used to determine who&#8217;s allowed to do what.
-<tt><a title="Learn more." href="MasterMayI/ActiveRecordExtensions.html">Learn more.</a></tt>
+<tt><a href="MasterMayI/ActiveRecordExtensions.html" title="Learn more.">Learn more.</a></tt>
 </p>
 <ul>
-<li><tt><a title="<tt>Model.creatable_by?(user)</tt>" href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable_by%3F-instance_method"><tt>Model.creatable_by?(user)</tt></a></tt> and
-<tt><a title="<tt>Model.creatable?</tt>" href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable%3F-instance_method"><tt>Model.creatable?</tt></a></tt>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable_by%3F-instance_method" title="<tt>Model.creatable_by?(user)</tt>"><tt>Model.creatable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#creatable%3F-instance_method" title="<tt>Model.creatable?</tt>"><tt>Model.creatable?</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>@model.readable_by?(user)</tt>" href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable_by%3F-instance_method"><tt>@model.readable_by?(user)</tt></a></tt> and
-<tt><a title="<tt>@model.readable?</tt>" href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable%3F-instance_method"><tt>@model.readable?</tt></a></tt>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable_by%3F-instance_method" title="<tt>@model.readable_by?(user)</tt>"><tt>@model.readable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#readable%3F-instance_method" title="<tt>@model.readable?</tt>"><tt>@model.readable?</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>@model.editable_by?(user)</tt>" href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable_by%3F-instance_method"><tt>@model.editable_by?(user)</tt></a></tt> and
-<tt><a title="<tt>@model.editable?</tt>" href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable%3F-instance_method"><tt>@model.editable?</tt></a></tt>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable_by%3F-instance_method" title="<tt>@model.editable_by?(user)</tt>"><tt>@model.editable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#editable%3F-instance_method" title="<tt>@model.editable?</tt>"><tt>@model.editable?</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>@model.destroyable_by?(user)</tt>" href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable_by%3F-instance_method"><tt>@model.destroyable_by?(user)</tt></a></tt> and
-<tt><a title="<tt>@model.destroyable?</tt>" href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable%3F-instance_method"><tt>@model.destroyable?</tt></a></tt>
+<li><tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable_by%3F-instance_method" title="<tt>@model.destroyable_by?(user)</tt>"><tt>@model.destroyable_by?(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/InstanceMethods.html#destroyable%3F-instance_method" title="<tt>@model.destroyable?</tt>"><tt>@model.destroyable?</tt></a></tt>
 
 </li>
 </ul>
@@ -75,9 +75,9 @@ customizing the rules is as easy as overriding the methods:
 </pre>
 <p>
 If you call
-<tt><a title="<tt>records_creating_user</tt>" href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method"><tt>records_creating_user</tt></a></tt> in your model, then the user from the
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method" title="<tt>records_creating_user</tt>"><tt>records_creating_user</tt></a></tt> in your model, then the user from the
 Authlogic UserSession is automatically stored whenever a record is created.
-<tt><a title="Learn more." href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method">Learn more.</a></tt>
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method" title="Learn more.">Learn more.</a></tt>
 </p>
 <pre class="code">
   <span class='class class kw'>class</span> <span class='Note constant id'>Note</span> <span class='lt op'>&lt;</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
@@ -90,10 +90,10 @@ Authlogic UserSession is automatically stored whenever a record is created.
 </pre>
 <p>
 MasterMayI also includes the
-<tt><a title="<tt>protects_restful_actions</tt>" href="MasterMayI/ControllerExtensions.html#protects_restful_actions-instance_method"><tt>protects_restful_actions</tt></a></tt> controller class method, which
+<tt><a href="MasterMayI/ControllerExtensions.html#protects_restful_actions-instance_method" title="<tt>protects_restful_actions</tt>"><tt>protects_restful_actions</tt></a></tt> controller class method, which
 integrates with InheritedResources in order to automatically check with the
 model in a set of before filters.
-<tt><a title="Learn more." href="MasterMayI/ControllerExtensions.html#protects_restful_actions-instance_method">Learn more.</a></tt>
+<tt><a href="MasterMayI/ControllerExtensions.html#protects_restful_actions-instance_method" title="Learn more.">Learn more.</a></tt>
 </p>
 <pre class="code">
   <span class='class class kw'>class</span> <span class='NotesController constant id'>NotesController</span> <span class='lt op'>&lt;</span> <span class='InheritedResources constant id'>InheritedResources</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span>
@@ -105,33 +105,48 @@ Finally, MasterMayI adds a few utility methods to your
 ApplicationController:
 </p>
 <ul>
-<li><tt><a title="<tt>current_user</tt>" href="MasterMayI/ControllerExtensions/InstanceMethods.html#current_user-instance_method"><tt>current_user</tt></a></tt>
+<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#current_user-instance_method" title="<tt>current_user</tt>"><tt>current_user</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>logged_in?</tt>" href="MasterMayI/ControllerExtensions/InstanceMethods.html#logged_in%3F-instance_method"><tt>logged_in?</tt></a></tt>
+<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#logged_in%3F-instance_method" title="<tt>logged_in?</tt>"><tt>logged_in?</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>require_user</tt>" href="MasterMayI/ControllerExtensions/InstanceMethods.html#require_user-instance_method"><tt>require_user</tt></a></tt>
+<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#require_user-instance_method" title="<tt>require_user</tt>"><tt>require_user</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>deny_access</tt>" href="MasterMayI/ControllerExtensions/InstanceMethods.html#deny_access-instance_method"><tt>deny_access</tt></a></tt>
+<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#deny_access-instance_method" title="<tt>deny_access</tt>"><tt>deny_access</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>store_location</tt>" href="MasterMayI/ControllerExtensions/InstanceMethods.html#store_location-instance_method"><tt>store_location</tt></a></tt>
+<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#store_location-instance_method" title="<tt>store_location</tt>"><tt>store_location</tt></a></tt>
 
 </li>
-<li><tt><a title="<tt>redirect_back_or url</tt>" href="MasterMayI/ControllerExtensions/InstanceMethods.html#redirect_back_or-instance_method"><tt>redirect_back_or url</tt></a></tt>
+<li><tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html#redirect_back_or-instance_method" title="<tt>redirect_back_or url</tt>"><tt>redirect_back_or url</tt></a></tt>
 
 </li>
 </ul>
 <p>
-<tt><a title="Learn more." href="MasterMayI/ControllerExtensions/InstanceMethods.html">Learn more.</a></tt>
+<tt><a href="MasterMayI/ControllerExtensions/InstanceMethods.html" title="Learn more.">Learn more.</a></tt>
 </p>
-<h2>Model Level Authorization</h2>
-<h2>Inherited Resources Support</h2>
-<h4>Before Filters</h4>
-<h4>Redirects messages</h4>
-<h4>Flash messages</h4>
+<h2>Testing</h2>
+<p>
+Master May I comes with a strong set of Shoulda macros for both your
+<tt><a href="ActiveSupport/TestCase.html" title="unit tests">unit tests</a></tt> and your <tt><a href="ActionController/TestCase.html" title="functional tests">functional tests</a></tt>.
+</p>
+<h2>Installation</h2>
+<p>
+Master May I is hosted on gemcutter, so installation is as easy as:
+</p>
+<pre class="code">
+  <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='master_may_i identifier id'>master_may_i</span>
+</pre>
+<p>
+It relies heavily on Authlogic, and uses the <tt>resource</tt> and
+<tt>resource_class</tt> methods from InheritedResources. The before filters
+expect there to be the following named route:
+</p>
+<pre class="code">
+  <span class='map identifier id'>map</span><span class='dot token'>.</span><span class='login identifier id'>login</span> <span class='string val'>&quot;/login&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:controller</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:user_session</span><span class='comma token'>,</span> <span class='symbol val'>:action</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:new</span>
+</pre>
 <h2>Copyright</h2>
 <p>
 Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
@@ -139,7 +154,7 @@ Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
 </div></div>
     
     <div id="footer">
-  Generated on Thu Dec  3 18:24:38 2009 by 
+  Generated on Fri Dec  4 08:03:19 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>
