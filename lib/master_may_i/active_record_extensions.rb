@@ -103,7 +103,7 @@ module MasterMayI::ActiveRecordExtensions
       end
 
       define_method :set_creating_user_from_session do
-        self.send("#{association_name}=", user_from_session)
+        self.send("#{association_name}=", user_from_session) unless self.send("#{association_name}")
       end
 
       define_method :created_by? do |user|
