@@ -2,6 +2,7 @@ Factory.sequence(:name) {|i| "username#{i}" }
 
 Factory.define :post do |f|
   f.title "New post"
+  f.association :creator, :factory => :user
 end
 
 Factory.define :note do |f|

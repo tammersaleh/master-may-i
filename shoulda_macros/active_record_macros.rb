@@ -132,19 +132,6 @@ class ActiveSupport::TestCase
 
     should_belong_to association_name
 
-    context "when there's not a logged in user" do
-      setup do
-        Authlogic::Session::Base.controller = Authlogic::TestCase::MockController.new
-        UserSession.find && UserSession.destroy
-      end
-
-      context "a new record" do
-        should "not blow up" do
-          @record = Factory(subject.class.name.underscore, association_name => nil)
-        end
-      end
-    end
-
     context "when there's a logged in user" do
       setup do
         Authlogic::Session::Base.controller = Authlogic::TestCase::MockController.new
