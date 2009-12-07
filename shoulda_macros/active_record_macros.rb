@@ -27,7 +27,7 @@
 #   end
 
 class ActiveSupport::TestCase
-  # Ensures that +subject+ is +creatable_by+ the user returned by the given block.
+  # Ensures that a new instance is +creatable_by+ the user returned by the given block.
   #
   # @param [String] test_name string describing the user type in question.
   # @yield Block should return a user record to test against.
@@ -39,7 +39,7 @@ class ActiveSupport::TestCase
     end
   end
 
-  # Ensures that +subject+ is not +creatable_by+ the user returned by the given block.
+  # Ensures that a new instance is not +creatable_by+ the user returned by the given block.
   #
   # @param [String] test_name string describing the user type in question.
   # @yield Block should return a user record to test against.
@@ -138,9 +138,9 @@ class ActiveSupport::TestCase
         UserSession.find && UserSession.destroy
       end
 
-      context "a new #{subject.class}" do
+      context "a new record" do
         should "not blow up" do
-          @record = Factory(subject.class.name.underscore)
+          @record = Factory(subject.class.name.underscore, association_name => nil)
         end
       end
     end
@@ -151,8 +151,8 @@ class ActiveSupport::TestCase
         UserSession.create(@user = Factory(:user))
       end
 
-      context "a new #{subject.class}" do
-        setup { @record = Factory(subject.class.name.underscore) }
+      context "a new record" do
+        setup { @record = Factory(subject.class.name.underscore, association_name => nil) }
 
         should "record that user on create as #{association_name}" do
           assert_equal(@user, @record.send(association_name))
