@@ -59,7 +59,33 @@
 
 module MasterMayI::ActiveRecordExtensions
   module ClassMethods # :nodoc:
+    # Returns a named scope representing all records the current user should be
+    # able to view.  Delegates to +listable_by+
+    #
+    # Note:  This method is not a predicate, but returns a scope.  Therefore,
+    # the method name does not end in a question mark.
+    #
+    # @see MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by listable_by
+    def listable
+      listable_by(user_from_session)
+    end
+
+    # Returns a named scope representing all records the given user should be
+    # able to view.  This method should be redefined inside the model.
+    #
+    # Note:  This method is not a predicate, but returns a scope.  Therefore,
+    # the method name does not end in a question mark.
+    #
+    # @param user [User, nil] Either a user record, or nil for visitors.
+    #
+    # @see ActiveSupport::TestCase.should_be_returned_via_listable_by should_be_returned_via_listable_by
+    def listable_by(user)
+      scoped({})
+    end
+
     # Should the current user be able to create a record? Delegates to +creatable_by?+
+    #
+    # @see MasterMayI::ActiveRecordExtensions::ClassMethods#creatable_by? creatable_by?
     def creatable?
       creatable_by?(user_from_session)
     end

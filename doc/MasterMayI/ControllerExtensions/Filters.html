@@ -78,6 +78,24 @@
 
     
       <li class="public ">
+  <span class="summary_signature"><a href="#collection-instance_method" title="#collection (instance method)">- (Object) <strong>collection</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Redefines the InheritedResources#collection method to call Model.listable.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
   <span class="summary_signature"><a href="#ensure_can_create_record-instance_method" title="#ensure_can_create_record (instance method)">- (Object) <strong>ensure_can_create_record</strong> </a>
   
   </span>
@@ -177,16 +195,16 @@ Stop unauthorized users from hitting <tt>show</tt>.
       <pre class="lines">
 
 
-137
-138
-139
 140
 141
 142
-143</pre>
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 140</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='controller identifier id'>controller</span><span class='rparen token'>)</span>
   <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='before_filter identifier id'>before_filter</span> <span class='symbol val'>:ensure_can_create_record</span><span class='comma token'>,</span>  <span class='symbol val'>:only</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:new</span><span class='comma token'>,</span> <span class='symbol val'>:create</span><span class='rbrack token'>]</span>
@@ -194,6 +212,47 @@ Stop unauthorized users from hitting <tt>show</tt>.
   <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='before_filter identifier id'>before_filter</span> <span class='symbol val'>:ensure_can_show_record</span><span class='comma token'>,</span>    <span class='symbol val'>:only</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:show</span>
   <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='before_filter identifier id'>before_filter</span> <span class='symbol val'>:ensure_can_edit_record</span><span class='comma token'>,</span>    <span class='symbol val'>:only</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:edit</span><span class='comma token'>,</span> <span class='symbol val'>:update</span><span class='rbrack token'>]</span>
   <span class='controller identifier id'>controller</span><span class='dot token'>.</span><span class='before_filter identifier id'>before_filter</span> <span class='symbol val'>:ensure_can_destroy_record</span><span class='comma token'>,</span> <span class='symbol val'>:only</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:destroy</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="collection-instance_method">
+  
+    - (<tt>Object</tt>) <strong>collection</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Redefines the InheritedResources#collection method to call Model.listable.
+This ensures that only listable records show up on the index page.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 151</span>
+
+<span class='def def kw'>def</span> <span class='collection identifier id'>collection</span>
+  <span class='get_collection_ivar identifier id'>get_collection_ivar</span> <span class='orop op'>||</span> <span class='set_collection_ivar identifier id'>set_collection_ivar</span><span class='lparen token'>(</span><span class='end_of_association_chain identifier id'>end_of_association_chain</span><span class='dot token'>.</span><span class='listable identifier id'>listable</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='symbol val'>:all</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -225,12 +284,12 @@ Stop unauthorized users from hitting <tt>new</tt> or <tt>create</tt>
       <pre class="lines">
 
 
-146
-147
-148</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 156</span>
 
 <span class='def def kw'>def</span> <span class='ensure_can_create_record identifier id'>ensure_can_create_record</span>
   <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='resource_class identifier id'>resource_class</span><span class='dot token'>.</span><span class='creatable? fid id'>creatable?</span>
@@ -265,12 +324,12 @@ Stop unauthorized users from hitting <tt>destroy</tt>
       <pre class="lines">
 
 
-161
-162
-163</pre>
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 171</span>
 
 <span class='def def kw'>def</span> <span class='ensure_can_destroy_record identifier id'>ensure_can_destroy_record</span>
   <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='resource identifier id'>resource</span><span class='dot token'>.</span><span class='destroyable? fid id'>destroyable?</span>
@@ -305,12 +364,12 @@ Stop unauthorized users from hitting <tt>edit</tt> or <tt>update</tt>
       <pre class="lines">
 
 
-156
-157
-158</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 166</span>
 
 <span class='def def kw'>def</span> <span class='ensure_can_edit_record identifier id'>ensure_can_edit_record</span>
   <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='resource identifier id'>resource</span><span class='dot token'>.</span><span class='editable? fid id'>editable?</span>
@@ -345,12 +404,12 @@ Stop unauthorized users from hitting <tt>show</tt>
       <pre class="lines">
 
 
-151
-152
-153</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 161</span>
 
 <span class='def def kw'>def</span> <span class='ensure_can_show_record identifier id'>ensure_can_show_record</span>
   <span class='deny_access identifier id'>deny_access</span> <span class='unless unless_mod kw'>unless</span> <span class='resource identifier id'>resource</span><span class='dot token'>.</span><span class='readable? fid id'>readable?</span>
@@ -366,7 +425,7 @@ Stop unauthorized users from hitting <tt>show</tt>
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 10:46:39 2009 by 
+  Generated on Wed Dec 23 03:17:30 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

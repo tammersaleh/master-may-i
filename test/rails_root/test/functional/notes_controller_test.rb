@@ -19,6 +19,15 @@ class NotesControllerTest < ActionController::TestCase
       context "given a note" do
         setup { @note = Factory(:note) }
 
+        context "on GET to /notes" do
+          setup { get :index }
+          should_not_set_the_flash
+          should_render_template :index
+          before_should "only show listable notes for that user" do
+            Note.expects(:listable).returns(Note.scoped({}))
+          end
+        end
+
         context "on GET to /notes/:id" do
           setup { get :show, :id => @note }
           should_not_set_the_flash

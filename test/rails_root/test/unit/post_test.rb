@@ -25,6 +25,7 @@ class PostTest < ActiveSupport::TestCase
     setup { @post = Factory(:post) }
     subject { @post }
 
+    should_be_returned_via_listable_by("everyone") { nil }
     should_be_readable_by(   "everyone") { nil }
     should_be_editable_by(   "everyone") { nil }
     should_be_destroyable_by("everyone") { nil }

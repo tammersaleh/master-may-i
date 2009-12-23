@@ -6,7 +6,7 @@
 
 == Overview
 
-Master May I is not an Access Control List system. In fact, it has absolutely
+{MasterMayI Master May I} is not an Access Control List system. In fact, it has absolutely
 no opinions about how you structure your underlying business rules. All it does
 is gives you a consistent and flexible pattern for accessing those rules.
 
@@ -40,6 +40,14 @@ the rules is as easy as overriding the methods:
     end
   end
 
+{MasterMayI Master May I} also adds the
+{MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by
++Model.listable_by(user)+} and
+{MasterMayI::ActiveRecordExtensions::ClassMethods#listable +Model.listable+}
+methods, which return a named scope limiting the returned records to those
+viewable by the given user.  Again, by default, it returns all records, and
+this should be redefined by each individual model.
+
 If you call
 {MasterMayI::ActiveRecordExtensions::ClassMethods#records_creating_user
 +records_creating_user+} in your model, then the user from the Authlogic
@@ -66,12 +74,14 @@ If you include {MasterMayI::ControllerExtensions} in your ApplicationController,
 * {MasterMayI::ControllerExtensions#store_location +store_location+}
 * {MasterMayI::ControllerExtensions#redirect_back_or +redirect_back_or url+}
 
-MasterMayI will also include the
+{MasterMayI Master May I} will also include the
 {MasterMayI::ControllerExtensions::ClassMethods#protects_restful_actions
 +protects_restful_actions+} controller class method, which integrates with
 InheritedResources in order to automatically check with the model in a set of
-before filters.  {MasterMayI::ControllerExtensions::ClassMethods#protects_restful_actions
-Learn more.}
+before filters.  In addition, it will override the
+InheritedResources#collection method to filter by the listable scope.
+{MasterMayI::ControllerExtensions::ClassMethods#protects_restful_actions Learn
+more.}
 
   class ApplicationController < ActionController::Base
     include MasterMayI::ControllerExtensions
@@ -86,7 +96,7 @@ Learn more.}
 
 == Testing with Shoulda
 
-Master May I comes with a strong set of Shoulda macros:
+{MasterMayI Master May I} comes with a strong set of Shoulda macros:
 
 ...for your {ActiveSupport::TestCase unit tests}:
 
@@ -128,7 +138,7 @@ Master May I comes with a strong set of Shoulda macros:
 
 == Installation
 
-Master May I is hosted on gemcutter, so installation is as easy as:
+{MasterMayI Master May I} is hosted on gemcutter, so installation is as easy as:
 
   sudo gem install master_may_i
 

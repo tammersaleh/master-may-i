@@ -81,8 +81,8 @@
 
   
     <span class="summary_desc">
-Adds before filters to your InheritedResources controller that protect
-access to the resource.
+Modifies your InheritedResources controller to protect access to the
+resource.
 
 </span>
   
@@ -98,7 +98,7 @@ access to the resource.
   
   
   <h3 class="inherited">Methods included from <a href="Filters.html" title="MasterMayI::ControllerExtensions::Filters">MasterMayI::ControllerExtensions::Filters</a></h3>
-  <p class="inherited"><a href="Filters.html#ensure_can_create_record-instance_method" title="#ensure_can_create_record">#ensure_can_create_record</a>, <a href="Filters.html#ensure_can_destroy_record-instance_method" title="#ensure_can_destroy_record">#ensure_can_destroy_record</a>, <a href="Filters.html#ensure_can_edit_record-instance_method" title="#ensure_can_edit_record">#ensure_can_edit_record</a>, <a href="Filters.html#ensure_can_show_record-instance_method" title="#ensure_can_show_record">#ensure_can_show_record</a>, <a href="Filters.html#included-class_method" title="included">included</a></p>
+  <p class="inherited"><a href="Filters.html#collection-instance_method" title="#collection">#collection</a>, <a href="Filters.html#ensure_can_create_record-instance_method" title="#ensure_can_create_record">#ensure_can_create_record</a>, <a href="Filters.html#ensure_can_destroy_record-instance_method" title="#ensure_can_destroy_record">#ensure_can_destroy_record</a>, <a href="Filters.html#ensure_can_edit_record-instance_method" title="#ensure_can_edit_record">#ensure_can_edit_record</a>, <a href="Filters.html#ensure_can_show_record-instance_method" title="#ensure_can_show_record">#ensure_can_show_record</a>, <a href="Filters.html#included-class_method" title="included">included</a></p>
 
 
   <div id="method_details">
@@ -114,14 +114,17 @@ access to the resource.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Adds before filters to your InheritedResources controller that protect
-access to the resource.
+Modifies your InheritedResources controller to protect access to the
+resource.
 </p>
 <p>
-Only the <tt>new</tt>, <tt>create</tt>, <tt>show</tt>, <tt>edit</tt>,
-<tt>update</tt>, and <tt>destroy</tt> actions are covered. Note that this
-does not protect the <tt>index</tt> action, or attempt to limit the records
-that are returned by <tt>find(:all)</tt>.
+protects_restful_actions redefines the collection method to filter by
+Model.listable. This ensures that only listable records show up on the
+index page.
+</p>
+<p>
+protects_restful_actions also adds before filters to your
+InheritedResources controller that protect access to the resource.
 </p>
 <p>
 The before filters make use of the
@@ -153,12 +156,12 @@ flash, save the intended location, and redirect the user.
       <pre class="lines">
 
 
-131
-132
-133</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/controller_extensions.rb', line 134</span>
 
 <span class='def def kw'>def</span> <span class='protects_restful_actions identifier id'>protects_restful_actions</span>
   <span class='include identifier id'>include</span> <span class='MasterMayI constant id'>MasterMayI</span><span class='colon2 op'>::</span><span class='ControllerExtensions constant id'>ControllerExtensions</span><span class='colon2 op'>::</span><span class='Filters constant id'>Filters</span>
@@ -174,7 +177,7 @@ flash, save the intended location, and redirect the user.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 10:46:39 2009 by 
+  Generated on Wed Dec 23 03:17:30 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

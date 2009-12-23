@@ -101,6 +101,44 @@ redefined inside the model.
 
     
       <li class="public ">
+  <span class="summary_signature"><a href="#listable-instance_method" title="#listable (instance method)">- (Object) <strong>listable</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns a named scope representing all records the current user should be
+able to view.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#listable_by-instance_method" title="#listable_by (instance method)">- (Object) <strong>listable_by</strong>(user) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns a named scope representing all records the given user should be
+able to view.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
   <span class="summary_signature"><a href="#records_creating_user-instance_method" title="#records_creating_user (instance method)">- (Object) <strong>records_creating_user</strong>(opts_hash = {}) </a>
   
   </span>
@@ -163,18 +201,25 @@ Should the current user be able to create a record? Delegates to
 </div>
 <div class="tags">
   
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#creatable_by%3F-instance_method" title="creatable_by?">creatable_by?</a></li>
+    
+  </ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-63
-64
-65</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 89</span>
 
 <span class='def def kw'>def</span> <span class='creatable? fid id'>creatable?</span>
   <span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
@@ -238,15 +283,140 @@ Either a user record, or nil for visitors.
       <pre class="lines">
 
 
-73
-74
-75</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 99</span>
 
 <span class='def def kw'>def</span> <span class='creatable_by? fid id'>creatable_by?</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
   <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="listable-instance_method">
+  
+    - (<tt>Object</tt>) <strong>listable</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a named scope representing all records the current user should be
+able to view. Delegates to <tt>listable_by</tt>
+</p>
+<p>
+Note: This method is not a predicate, but returns a scope. Therefore, the
+method name does not end in a question mark.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="#listable_by-instance_method" title="listable_by">listable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 69</span>
+
+<span class='def def kw'>def</span> <span class='listable identifier id'>listable</span>
+  <span class='listable_by identifier id'>listable_by</span><span class='lparen token'>(</span><span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="listable_by-instance_method">
+  
+    - (<tt>Object</tt>) <strong>listable_by</strong>(user) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a named scope representing all records the given user should be
+able to view. This method should be redefined inside the model.
+</p>
+<p>
+Note: This method is not a predicate, but returns a scope. Therefore, the
+method name does not end in a question mark.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>User</tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>user</span>
+      
+      
+      
+        &mdash;
+        
+Either a user record, or nil for visitors.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../../ActiveSupport/TestCase.html#should_be_returned_via_listable_by-class_method" title="should_be_returned_via_listable_by">should_be_returned_via_listable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 82</span>
+
+<span class='def def kw'>def</span> <span class='listable_by identifier id'>listable_by</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+  <span class='scoped identifier id'>scoped</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -297,31 +467,31 @@ method that sets the user from the Authlogic session.
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113</pre>
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 118</span>
 
 <span class='def def kw'>def</span> <span class='records_creating_user identifier id'>records_creating_user</span><span class='lparen token'>(</span><span class='opts_hash identifier id'>opts_hash</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='HashWithIndifferentAccess constant id'>HashWithIndifferentAccess</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='opts_hash identifier id'>opts_hash</span><span class='rparen token'>)</span>
@@ -337,7 +507,7 @@ method that sets the user from the Authlogic session.
   <span class='end end kw'>end</span>
 
   <span class='define_method identifier id'>define_method</span> <span class='symbol val'>:set_creating_user_from_session</span> <span class='do do kw'>do</span>
-    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{association_name}=&quot;</span><span class='comma token'>,</span> <span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{association_name}=&quot;</span><span class='comma token'>,</span> <span class='user_from_session identifier id'>user_from_session</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{association_name}&quot;</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
 
   <span class='define_method identifier id'>define_method</span> <span class='symbol val'>:created_by?</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='user identifier id'>user</span><span class='bitor op'>|</span>
@@ -375,14 +545,14 @@ Returns the currently logged in user via the Authlogic UserSession class.
       <pre class="lines">
 
 
-78
-79
-80
-81
-82</pre>
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/master_may_i/active_record_extensions.rb', line 104</span>
 
 <span class='def def kw'>def</span> <span class='user_from_session identifier id'>user_from_session</span>
   <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='andop op'>&amp;&amp;</span> <span class='UserSession constant id'>UserSession</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='dot token'>.</span><span class='user identifier id'>user</span>
@@ -400,7 +570,7 @@ Returns the currently logged in user via the Authlogic UserSession class.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 10:46:39 2009 by 
+  Generated on Wed Dec 23 03:17:30 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

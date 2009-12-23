@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{master_may_i}
-  s.version = "0.5.2"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tammer Saleh"]
-  s.date = %q{2009-12-07}
+  s.date = %q{2009-12-23}
   s.description = %q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
   s.email = %q{tsaleh@gmail.com}
   s.extra_rdoc_files = [

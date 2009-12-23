@@ -83,6 +83,9 @@ These macros are very useful. Use them.
       <span class='setup identifier id'>setup</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='assign token'>=</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:note</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
       <span class='subject identifier id'>subject</span> <span class='lbrace token'>{</span> <span class='@note ivar id'>@note</span> <span class='rbrace token'>}</span>
 
+      <span class='should_be_returned_via_listable_by identifier id'>should_be_returned_via_listable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-read&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-read&quot;</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+      <span class='should_not_be_returned_via_listable_by identifier id'>should_not_be_returned_via_listable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;everyone&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='nil nil kw'>nil</span> <span class='rbrace token'>}</span>
+
       <span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-read&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-read&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
       <span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-edit&quot;</span><span class='rparen token'>)</span>       <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-edit&quot;</span><span class='rparen token'>)</span>    <span class='rbrace token'>}</span>
       <span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='string val'>&quot;boy named sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='Factory constant id'>Factory</span><span class='lparen token'>(</span><span class='symbol val'>:user</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;sue-destroy&quot;</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
@@ -116,8 +119,8 @@ These macros are very useful. Use them.
 
   
     <span class="summary_desc">
-Ensures that <tt>subject</tt> is <tt>creatable_by</tt> the user returned by
-the given block.
+Ensures that a record of this class is <tt>creatable_by</tt> the user
+returned by the given block.
 
 </span>
   
@@ -182,6 +185,25 @@ the given block.
 
     
       <li class="public ">
+  <span class="summary_signature"><a href="#should_be_returned_via_listable_by-class_method" title="should_be_returned_via_listable_by (class method)">+ (Object) <strong>should_be_returned_via_listable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is <tt>listable_by</tt> the user returned by
+the given block.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
   <span class="summary_signature"><a href="#should_not_be_creatable_by-class_method" title="should_not_be_creatable_by (class method)">+ (Object) <strong>should_not_be_creatable_by</strong>(test_name, &amp;user_block) </a>
   
   </span>
@@ -192,7 +214,7 @@ the given block.
 
   
     <span class="summary_desc">
-Ensures that <tt>subject</tt> is not <tt>creatable_by</tt> the user
+Ensures that a record of this class is not <tt>creatable_by</tt> the user
 returned by the given block.
 
 </span>
@@ -258,6 +280,25 @@ by the given block.
 
     
       <li class="public ">
+  <span class="summary_signature"><a href="#should_not_be_returned_via_listable_by-class_method" title="should_not_be_returned_via_listable_by (class method)">+ (Object) <strong>should_not_be_returned_via_listable_by</strong>(test_name, &amp;user_block) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Ensures that <tt>subject</tt> is not <tt>listable_by</tt> the user returned
+by the given block.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
   <span class="summary_signature"><a href="#should_record_creating_user-class_method" title="should_record_creating_user (class method)">+ (Object) <strong>should_record_creating_user</strong>(opts = {}) </a>
   
   </span>
@@ -293,8 +334,8 @@ Authlogic session.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Ensures that <tt>subject</tt> is <tt>creatable_by</tt> the user returned by
-the given block.
+Ensures that a record of this class is <tt>creatable_by</tt> the user
+returned by the given block.
 </p>
 
 
@@ -355,14 +396,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-36
-37
-38
-39
-40</pre>
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 40</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_creatable_by identifier id'>should_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -447,14 +488,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-108
-109
-110
-111
-112</pre>
+145
+146
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 145</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_destroyable_by identifier id'>should_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -539,14 +580,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-84
-85
-86
-87
-88</pre>
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_editable_by identifier id'>should_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -631,18 +672,118 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-60
-61
-62
-63
-64</pre>
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 97</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_readable_by identifier id'>should_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
     <span class='assert identifier id'>assert</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_be_returned_via_listable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_be_returned_via_listable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is <tt>listable_by</tt> the user returned by
+the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/ClassMethods.html#listable_by-instance_method" title="MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by">MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 65</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_be_returned_via_listable_by identifier id'>should_be_returned_via_listable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;be returned via listable_by for #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='records identifier id'>records</span> <span class='assign token'>=</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='listable_by identifier id'>listable_by</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='assert_equal identifier id'>assert_equal</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='NamedScope constant id'>NamedScope</span><span class='colon2 op'>::</span><span class='Scope constant id'>Scope</span><span class='comma token'>,</span> 
+                 <span class='records identifier id'>records</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='comma token'>,</span> 
+                 <span class='dstring node'>&quot;#{subject.class}.listable_by must return a named scope.&quot;</span>
+    <span class='assert_contains identifier id'>assert_contains</span> <span class='records identifier id'>records</span><span class='comma token'>,</span> <span class='subject identifier id'>subject</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -661,7 +802,7 @@ Block should return a user record to test against.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Ensures that <tt>subject</tt> is not <tt>creatable_by</tt> the user
+Ensures that a record of this class is not <tt>creatable_by</tt> the user
 returned by the given block.
 </p>
 
@@ -723,14 +864,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-48
-49
-50
-51
-52</pre>
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 53</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_creatable_by identifier id'>should_not_be_creatable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be creatable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -815,14 +956,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-120
-121
-122
-123
-124</pre>
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 157</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_destroyable_by identifier id'>should_not_be_destroyable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be destroyable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -907,14 +1048,14 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-96
-97
-98
-99
-100</pre>
+133
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 133</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_editable_by identifier id'>should_not_be_editable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be editable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
@@ -999,18 +1140,118 @@ Block should return a user record to test against.
       <pre class="lines">
 
 
-72
-73
-74
-75
-76</pre>
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_readable_by identifier id'>should_not_be_readable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
   <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be readable by #{test_name}&quot;</span> <span class='do do kw'>do</span>
     <span class='assert identifier id'>assert</span> <span class='notop op'>!</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='readable_by? fid id'>readable_by?</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="should_not_be_returned_via_listable_by-class_method">
+  
+    + (<tt>Object</tt>) <strong>should_not_be_returned_via_listable_by</strong>(test_name, &amp;user_block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Ensures that <tt>subject</tt> is not <tt>listable_by</tt> the user returned
+by the given block.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>test_name</span>
+      
+      
+      
+        &mdash;
+        
+string describing the user type in question.
+
+
+      
+    </li>
+  
+</ul>
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+      
+      
+        
+        
+Block should return a user record to test against.
+
+
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="../MasterMayI/ActiveRecordExtensions/ClassMethods.html#listable_by-instance_method" title="MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by">MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 81</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_not_be_returned_via_listable_by identifier id'>should_not_be_returned_via_listable_by</span><span class='lparen token'>(</span><span class='test_name identifier id'>test_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span>
+  <span class='should identifier id'>should</span> <span class='dstring node'>&quot;not be returned via listable_by for #{test_name}&quot;</span> <span class='do do kw'>do</span>
+    <span class='records identifier id'>records</span> <span class='assign token'>=</span> <span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='listable_by identifier id'>listable_by</span><span class='lparen token'>(</span><span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='user_block identifier id'>user_block</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='assert_equal identifier id'>assert_equal</span> <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='NamedScope constant id'>NamedScope</span><span class='colon2 op'>::</span><span class='Scope constant id'>Scope</span><span class='comma token'>,</span> 
+                 <span class='records identifier id'>records</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='comma token'>,</span> 
+                 <span class='dstring node'>&quot;#{subject.class}.listable_by must return a named scope.&quot;</span>
+    <span class='assert_does_not_contain identifier id'>assert_does_not_contain</span> <span class='records identifier id'>records</span><span class='comma token'>,</span> <span class='subject identifier id'>subject</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -1075,43 +1316,6 @@ The name of the association that holds the creating user.
       <pre class="lines">
 
 
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
 167
 168
 169
@@ -1119,10 +1323,47 @@ The name of the association that holds the creating user.
 171
 172
 173
-174</pre>
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'shoulda_macros/active_record_macros.rb', line 167</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='should_record_creating_user identifier id'>should_record_creating_user</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='association_name identifier id'>association_name</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:as</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:creator</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
@@ -1180,7 +1421,7 @@ The name of the association that holds the creating user.
 </div>
     
     <div id="footer">
-  Generated on Fri Dec  4 10:46:37 2009 by 
+  Generated on Wed Dec 23 03:17:31 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

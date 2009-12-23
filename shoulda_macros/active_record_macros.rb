@@ -16,6 +16,9 @@
 #       setup { @note = Factory(:note) }
 #       subject { @note }
 #   
+#       should_be_returned_via_listable_by("boy named sue-read") { Factory(:user, :username => "sue-read") }
+#       should_not_be_returned_via_listable_by("everyone") { nil }
+#
 #       should_be_readable_by("boy named sue-read")       { Factory(:user, :username => "sue-read")    }
 #       should_be_editable_by("boy named sue-edit")       { Factory(:user, :username => "sue-edit")    }
 #       should_be_destroyable_by("boy named sue-destroy") { Factory(:user, :username => "sue-destroy") }
@@ -27,7 +30,8 @@
 #   end
 
 class ActiveSupport::TestCase
-  # Ensures that a new instance is +creatable_by+ the user returned by the given block.
+  # Ensures that a record of this class is +creatable_by+ the user returned by
+  # the given block.
   #
   # @param [String] test_name string describing the user type in question.
   # @yield Block should return a user record to test against.
@@ -39,7 +43,8 @@ class ActiveSupport::TestCase
     end
   end
 
-  # Ensures that a new instance is not +creatable_by+ the user returned by the given block.
+  # Ensures that a record of this class is not +creatable_by+ the user returned
+  # by the given block.
   #
   # @param [String] test_name string describing the user type in question.
   # @yield Block should return a user record to test against.
@@ -48,6 +53,38 @@ class ActiveSupport::TestCase
   def self.should_not_be_creatable_by(test_name, &user_block)
     should "not be creatable by #{test_name}" do
       assert !subject.class.creatable_by?(instance_eval(&user_block))
+    end
+  end
+
+  # Ensures that +subject+ is +listable_by+ the user returned by the given block.
+  #
+  # @param [String] test_name string describing the user type in question.
+  # @yield Block should return a user record to test against.
+  #
+  # @see MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by
+  def self.should_be_returned_via_listable_by(test_name, &user_block)
+    should "be returned via listable_by for #{test_name}" do
+      records = subject.class.listable_by(instance_eval(&user_block))
+      assert_equal ActiveRecord::NamedScope::Scope, 
+                   records.class, 
+                   "#{subject.class}.listable_by must return a named scope."
+      assert_contains records, subject
+    end
+  end
+
+  # Ensures that +subject+ is not +listable_by+ the user returned by the given block.
+  #
+  # @param [String] test_name string describing the user type in question.
+  # @yield Block should return a user record to test against.
+  #
+  # @see MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by
+  def self.should_not_be_returned_via_listable_by(test_name, &user_block)
+    should "not be returned via listable_by for #{test_name}" do
+      records = subject.class.listable_by(instance_eval(&user_block))
+      assert_equal ActiveRecord::NamedScope::Scope, 
+                   records.class, 
+                   "#{subject.class}.listable_by must return a named scope."
+      assert_does_not_contain records, subject
     end
   end
 

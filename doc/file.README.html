@@ -37,11 +37,11 @@
     
     <div id="content"><div id='filecontents'><h1>Master May I?</h1>
 <h3>Clean, simple and flexible model based authorization designed to work with AuthLogic and InheritedResources.</h3>
-<h3>If these docs looks all wanky, then be sure you&#8217;re viewing them on the rdoc.info site: http://rdoc.info/projects/tsaleh/master-may-i</h3>
+<h3>If these docs looks all wanky, then be sure you&#8217;re viewing them on the rdoc.info site: <a href="http://rdoc.info/projects/tsaleh/master-may-i">rdoc.info/projects/tsaleh/master-may-i</a></h3>
 <h2>Overview</h2>
 <p>
-Master May I is not an Access Control List system. In fact, it has
-absolutely no opinions about how you structure your underlying business
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> is not an Access Control List system. In fact, it
+has absolutely no opinions about how you structure your underlying business
 rules. All it does is gives you a consistent and flexible pattern for
 accessing those rules.
 </p>
@@ -83,6 +83,13 @@ customizing the rules is as easy as overriding the methods:
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 </pre>
+<p>
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> also adds the
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#listable_by-instance_method" title="<tt>Model.listable_by(user)</tt>"><tt>Model.listable_by(user)</tt></a></tt> and
+<tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#listable-instance_method" title="<tt>Model.listable</tt>"><tt>Model.listable</tt></a></tt> methods, which return a named scope limiting the
+returned records to those viewable by the given user. Again, by default, it
+returns all records, and this should be redefined by each individual model.
+</p>
 <p>
 If you call
 <tt><a href="MasterMayI/ActiveRecordExtensions/ClassMethods.html#records_creating_user-instance_method" title="<tt>records_creating_user</tt>"><tt>records_creating_user</tt></a></tt> in your model, then the user from the
@@ -126,10 +133,11 @@ url</tt>}
 </li>
 </ul>
 <p>
-MasterMayI will also include the
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> will also include the
 <tt><a href="MasterMayI/ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="<tt>protects_restful_actions</tt>"><tt>protects_restful_actions</tt></a></tt> controller class method, which
 integrates with InheritedResources in order to automatically check with the
-model in a set of before filters.
+model in a set of before filters. In addition, it will override the
+InheritedResources#collection method to filter by the listable scope.
 <tt><a href="MasterMayI/ControllerExtensions/ClassMethods.html#protects_restful_actions-instance_method" title="Learn more.">Learn more.</a></tt>
 </p>
 <pre class="code">
@@ -147,7 +155,7 @@ model in a set of before filters.
 </p>
 <h2>Testing with Shoulda</h2>
 <p>
-Master May I comes with a strong set of Shoulda macros:
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> comes with a strong set of Shoulda macros:
 </p>
 <p>
 &#8230;for your <tt><a href="ActiveSupport/TestCase.html" title="unit tests">unit tests</a></tt>:
@@ -193,7 +201,8 @@ Master May I comes with a strong set of Shoulda macros:
 </pre>
 <h2>Installation</h2>
 <p>
-Master May I is hosted on gemcutter, so installation is as easy as:
+<tt><a href="MasterMayI.html" title="Master May I">Master May I</a></tt> is hosted on gemcutter, so installation is as
+easy as:
 </p>
 <pre class="code">
   <span class='sudo identifier id'>sudo</span> <span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='master_may_i identifier id'>master_may_i</span>
@@ -214,7 +223,7 @@ Copyright &#169; 2009 Tammer Saleh. See LICENSE for details.
 </div></div>
     
     <div id="footer">
-  Generated on Fri Dec  4 10:46:37 2009 by 
+  Generated on Wed Dec 23 03:17:29 2009 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.4.0 (ruby-1.8.6).
 </div>

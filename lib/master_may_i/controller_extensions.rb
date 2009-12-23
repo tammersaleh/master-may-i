@@ -114,11 +114,14 @@ module MasterMayI::ControllerExtensions
   end
 
   module ClassMethods
-    # Adds before filters to your InheritedResources controller that protect access to the resource.
+    # Modifies your InheritedResources controller to protect access to the resource.
     #
-    # Only the +new+, +create+, +show+, +edit+, +update+, and +destroy+ actions
-    # are covered.  Note that this does not protect the +index+ action, or
-    # attempt to limit the records that are returned by +find(:all)+.
+    # protects_restful_actions redefines the collection method to filter by
+    # Model.listable.  This ensures that only listable records show up on the
+    # index page.
+    #
+    # protects_restful_actions also adds before filters to your
+    # InheritedResources controller that protect access to the resource.
     #
     # The before filters make use of the
     # {MasterMayI::ControllerExtensions#deny_access deny_acces}
@@ -140,6 +143,13 @@ module MasterMayI::ControllerExtensions
       controller.before_filter :ensure_can_show_record,    :only => :show
       controller.before_filter :ensure_can_edit_record,    :only => [:edit, :update]
       controller.before_filter :ensure_can_destroy_record, :only => :destroy
+    end
+
+    # Redefines the InheritedResources#collection method to call
+    # Model.listable.  This ensures that only listable records show up on the
+    # index page.
+    def collection
+      get_collection_ivar || set_collection_ivar(end_of_association_chain.listable.find(:all))
     end
 
     # Stop unauthorized users from hitting +new+ or +create+

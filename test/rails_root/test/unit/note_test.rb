@@ -12,6 +12,9 @@ class NoteTest < ActiveSupport::TestCase
     setup { @note = Factory(:note) }
     subject { @note }
 
+    should_be_returned_via_listable_by("boy named sue-read") { Factory(:user, :username => "sue-read") }
+    should_not_be_returned_via_listable_by("everyone")       { nil }
+
     should_be_readable_by("boy named sue-read")       { Factory(:user, :username => "sue-read")    }
     should_be_editable_by("boy named sue-edit")       { Factory(:user, :username => "sue-edit")    }
     should_be_destroyable_by("boy named sue-destroy") { Factory(:user, :username => "sue-destroy") }
