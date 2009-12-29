@@ -100,11 +100,21 @@ module MasterMayI::ActiveRecordExtensions
       true
     end
 
-    # Returns the currently logged in user via the Authlogic UserSession class.
-    def user_from_session
-      UserSession.find && UserSession.find.user
-    rescue Authlogic::Session::Activation::NotActivatedError
-      nil
+    if defined?(Authlogic)
+      # Returns the currently logged in user via the Authlogic UserSession class.
+      def user_from_session
+        UserSession.find && UserSession.find.user
+      rescue Authlogic::Session::Activation::NotActivatedError
+        nil
+      end
+    else
+      def user_from_session=(user)
+        Thread.current[:master_may_i_user_from_session] = user
+      end
+
+      def user_from_session
+        Thread.current[:master_may_i_user_from_session]
+      end
     end
 
     # Record the +user_from_session+ as the +creator+ when creating a new record.
