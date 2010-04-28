@@ -23,15 +23,22 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-# Rake::TestTask.new(:test) do |test|
-#   test.libs << 'lib' << 'test'
-#   test.pattern = 'test/**/test_*.rb'
-#   test.verbose = true
-# end
+
+task :default => :test
+
 desc 'Run the tests.'
-task :test do
-  rails_root = File.join(File.dirname(__FILE__), 'test', 'rails_root')
-  system("cd #{rails_root} && rake")
+task :test => [:check_dependencies, "test:rails2", "test:rails3"]
+
+namespace :test do
+  task :rails2 do
+    rails_root = File.join(File.dirname(__FILE__), 'test', 'rails2_root')
+    system("cd #{rails_root} && rake")
+  end
+
+  task :rails3 do
+    rails_root = File.join(File.dirname(__FILE__), 'test', 'rails3_root')
+    system("cd #{rails_root} && rake")
+  end
 end
 
 begin
@@ -47,9 +54,6 @@ rescue LoadError
   end
 end
 
-task :test => :check_dependencies
-
-task :default => :test
 
 begin
   require 'active_support'

@@ -1,29 +1,18 @@
-## MAC OS
-.DS_Store
-
-## TEXTMATE
-*.tmproj
-tmtags
-
-## EMACS
-*~
-\#*
-.\#*
-
-## VIM
-*.swp
-
-## PROJECT::GENERAL
 coverage
 rdoc
 pkg
 
-## PROJECT::SPECIFIC
-test/rails_root/log/*
-test/rails_root/tmp/**/*
-test/rails_root/db/schema.rb
-test/rails_root/db/*.sqlite3
-test/rails_root/public/system
+test/rails2_root/log/*
+test/rails2_root/tmp/**/*
+test/rails2_root/db/schema.rb
+test/rails2_root/db/*.sqlite3
+test/rails2_root/public/system
+
+test/rails3_root/log/*
+test/rails3_root/tmp/**/*
+test/rails3_root/db/schema.rb
+test/rails3_root/db/*.sqlite3
+test/rails3_root/public/system
 
 !.keep
 
