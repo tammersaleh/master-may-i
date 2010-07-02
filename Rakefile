@@ -1,33 +1,33 @@
 require 'rubygems'
 require 'rake'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "master_may_i"
-    gem.summary = %Q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
-    gem.description = %Q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
-    gem.email = "tsaleh@gmail.com"
-    gem.homepage = "http://tammersaleh.com/posts/master-may-i"
-    gem.authors = ["Tammer Saleh"]
-    gem.add_development_dependency "yard", ">= 0"
-    gem.add_development_dependency "shoulda", ">= 0"
-    gem.add_development_dependency "factory_girl", ">= 0"
-    gem.add_development_dependency "authlogic", ">= 2.1.1"
-    gem.add_development_dependency "inherited_resources", "~> 0.9.3"
-    gem.add_development_dependency "rails", ">= 0"
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
+# begin
+#   require 'jeweler'
+#   Jeweler::Tasks.new do |gem|
+#     gem.name = "master_may_i"
+#     gem.summary = %Q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
+#     gem.description = %Q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
+#     gem.email = "tsaleh@gmail.com"
+#     gem.homepage = "http://tammersaleh.com/posts/master-may-i"
+#     gem.authors = ["Tammer Saleh"]
+#     gem.add_development_dependency "yard", ">= 0"
+#     gem.add_development_dependency "shoulda", ">= 0"
+#     gem.add_development_dependency "factory_girl", ">= 0"
+#     gem.add_development_dependency "authlogic", ">= 2.1.1"
+#     gem.add_development_dependency "inherited_resources", "~> 0.9.3"
+#     gem.add_development_dependency "rails", ">= 0"
+#   end
+#   Jeweler::GemcutterTasks.new
+# rescue LoadError
+#   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+# end
 
 require 'rake/testtask'
 
 task :default => :test
 
 desc 'Run the tests.'
-task :test => [:check_dependencies, "test:rails2", "test:rails3"]
+task :test => ["test:rails2", "test:rails3"]
 
 namespace :test do
   task :rails2 do
