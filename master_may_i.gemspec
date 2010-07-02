@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{master_may_i}
-  s.version = "0.6.2"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tammer Saleh"]
-  s.date = %q{2010-01-15}
+  s.date = %q{2010-07-02}
   s.description = %q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
   s.email = %q{tsaleh@gmail.com}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     ".rvmrc",
      ".yardoc",
      "LICENSE",
      "README.rdoc",
@@ -56,6 +57,7 @@ Gem::Specification.new do |s|
      "lib/master_may_i.rb",
      "lib/master_may_i/active_record_extensions.rb",
      "lib/master_may_i/controller_extensions.rb",
+     "lib/master_may_i/rspec.rb",
      "master_may_i.gemspec",
      "shoulda_macros/active_record_macros.rb",
      "shoulda_macros/controller_macros.rb",
@@ -128,7 +130,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://tammersaleh.com/posts/master-may-i}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Simple model based authorization designed to work with AuthLogic and InheritedResources}
   s.test_files = [
     "test/factories.rb",
@@ -170,27 +172,27 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<yard>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<factory_girl>, [">= 0"])
-      s.add_development_dependency(%q<authlogic>, [">= 0"])
-      s.add_development_dependency(%q<inherited_resources>, [">= 0"])
+      s.add_development_dependency(%q<authlogic>, [">= 2.1.1"])
+      s.add_development_dependency(%q<inherited_resources>, ["~> 0.9.3"])
       s.add_development_dependency(%q<rails>, [">= 0"])
     else
       s.add_dependency(%q<yard>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<factory_girl>, [">= 0"])
-      s.add_dependency(%q<authlogic>, [">= 0"])
-      s.add_dependency(%q<inherited_resources>, [">= 0"])
+      s.add_dependency(%q<authlogic>, [">= 2.1.1"])
+      s.add_dependency(%q<inherited_resources>, ["~> 0.9.3"])
       s.add_dependency(%q<rails>, [">= 0"])
     end
   else
     s.add_dependency(%q<yard>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<factory_girl>, [">= 0"])
-    s.add_dependency(%q<authlogic>, [">= 0"])
-    s.add_dependency(%q<inherited_resources>, [">= 0"])
+    s.add_dependency(%q<authlogic>, [">= 2.1.1"])
+    s.add_dependency(%q<inherited_resources>, ["~> 0.9.3"])
     s.add_dependency(%q<rails>, [">= 0"])
   end
 end
