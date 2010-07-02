@@ -13,8 +13,8 @@ begin
     gem.add_development_dependency "yard", ">= 0"
     gem.add_development_dependency "shoulda", ">= 0"
     gem.add_development_dependency "factory_girl", ">= 0"
-    gem.add_development_dependency "authlogic", ">= 0"
-    gem.add_development_dependency "inherited_resources", ">= 0"
+    gem.add_development_dependency "authlogic", ">= 2.1.1"
+    gem.add_development_dependency "inherited_resources", "~> 0.9.3"
     gem.add_development_dependency "rails", ">= 0"
   end
   Jeweler::GemcutterTasks.new

@@ -44,7 +44,7 @@ the rules is as easy as overriding the methods:
 {MasterMayI::ActiveRecordExtensions::ClassMethods#listable_by
 +Model.listable_by(user)+} and
 {MasterMayI::ActiveRecordExtensions::ClassMethods#listable +Model.listable+}
-methods, which return a named scope limiting the returned records to those
+methods, which return a scope limiting the returned records to those
 viewable by the given user.  Again, by default, it returns all records, and
 this should be redefined by each individual model.
 

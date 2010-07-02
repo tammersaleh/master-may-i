@@ -102,19 +102,10 @@ module MasterMayI::ActiveRecordExtensions
 
     # Returns the currently logged in user via the Authlogic UserSession class.
     def user_from_session
-      if defined?(Authlogic)
-        begin
-          return(UserSession.find && UserSession.find.user)
-        rescue Authlogic::Session::Activation::NotActivatedError
-          nil
-        end
-      else
-        Thread.current[:master_may_i_user_from_session]
-      end
+      Thread.current[:master_may_i_user_from_session]
     end
 
     def user_from_session=(user)
-      raise RuntimeError.new("Attempt to set user_from_session while Authlogic is loaded") if defined?(Authlogic)
       Thread.current[:master_may_i_user_from_session] = user
     end
 
@@ -130,13 +121,9 @@ module MasterMayI::ActiveRecordExtensions
       opts = HashWithIndifferentAccess.new(opts_hash)
       association_name = (opts[:as] || :creator).to_sym
 
-      before_validation_on_create :set_creating_user_from_session
+      before_validation :set_creating_user_from_session, :on => :create
       unless reflect_on_association(association_name)
-        if association_name == :user
-          belongs_to :user
-        else
-          belongs_to association_name, :class_name => "User"
-        end
+        belongs_to association_name, :class_name => "User"
       end
 
       define_method :set_creating_user_from_session do
@@ -145,6 +132,7 @@ module MasterMayI::ActiveRecordExtensions
 
       define_method :created_by? do |user|
         return false unless user
+        return false unless self.send(association_name)
         self.send(association_name).id == user.id
       end
     end
